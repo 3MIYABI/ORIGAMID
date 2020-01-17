@@ -63,3 +63,41 @@ endif()
 
 # add compile definitions to match this specific use case
 target_compile_definitions(crypto_sqlite PUBLIC
+        # Serialized -> free to use same connection/statement in different threads
+        -DSQLITE_THREADSAFE=1
+        # No need for another memory watcher
+        -DSQLITE_DEFAULT_MEMSTATUS=0
+        # Always use memory for temporary files
+        -DSQLITE_TEMP_STORE=3
+        # Use the new write ahead logging
+        -DSQLITE_DEFAULT_WAL_SYNCHRONOUS=1
+        # Do not allow searching in BLOBs by using LIKE or GLOB.
+        -DSQLITE_LIKE_DOESNT_MATCH_BLOBS=1
+        # We don't need checking the depth of the expression tree as queries won't be that complex.
+        -DSQLITE_MAX_EXPR_DEPTH=0
+        # Do not use any deprecated features as deprecated is not so good.
+        -DSQLITE_OMIT_DEPRECATED=1
+        # Since we are using sqlite async, we do not need this
+        -DSQLITE_OMIT_PROGRESS_CALLBACK=1
+        # Using this is supported on all platforms we care about and improves VFS performance
+        -DHAVE_FDATASYNC
+        # Use perfomant isnan system version
+        -DHAVE_ISNAN
+        # Use interface to get malloc available size
+        -DHAVE_MALLOC_USABLE_SIZE
+        # Readable and writeable by user only
+        -DSQLITE_DEFAULT_FILE_PERMISSIONS=0600
+        # Hardening always makes sense.
+        -DSQLITE_ENABLE_API_ARMOR
+        # Full text search
+        -DSQLITE_ENABLE_FTS4
+        -DSQLITE_ENABLE_FTS5
+        # Unicode support for strings in comparators
+        -DSQLITE_ENABLE_ICU
+        # Enable JSON extension support
+        -DSQLITE_ENABLE_JSON1
+        )
+
+if (WIN32)
+    target_compile_definitions(crypto_sqlite PUBLIC
+            # Required due to unix having 8-byte boundaries.
