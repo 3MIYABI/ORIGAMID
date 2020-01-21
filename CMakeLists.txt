@@ -101,3 +101,17 @@ target_compile_definitions(crypto_sqlite PUBLIC
 if (WIN32)
     target_compile_definitions(crypto_sqlite PUBLIC
             # Required due to unix having 8-byte boundaries.
+            -DSQLITE_4_BYTE_ALIGNED_MALLOC=1
+            )
+else()
+    target_compile_definitions(crypto_sqlite PUBLIC
+            # Use threadsafe localtime
+            -DHAVE_LOCALTIME_R
+            )
+endif()
+
+# export includes to other targets
+target_include_directories(crypto_sqlite PUBLIC
+        ${SQLITE_INCLUDES}
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/
+        )
