@@ -4,4 +4,4 @@ plus SQLite3 header.
 
 ## Features
 * transparent usage
-* interface: no hard-coded list of ci
+* interface: no hard-coded list of ciphers, use your crypto lib of choi
