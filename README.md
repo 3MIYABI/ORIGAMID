@@ -4,4 +4,4 @@ plus SQLite3 header.
 
 ## Features
 * transparent usage
-* interface: 
+* interface: no hard-coded list of ci
