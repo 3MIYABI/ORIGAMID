@@ -7,4 +7,4 @@ plus SQLite3 header.
 * interface: no hard-coded list of ciphers, use your crypto lib of choice
 * full page encryption
 * SQLite3 file header encryption
-* key fi
+* key file support: long encryption key
