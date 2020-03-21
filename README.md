@@ -11,4 +11,4 @@ plus SQLite3 header.
 with a password)
 
 ## Setup
-1. 
+1. Initialize Git submodules: `git submodul
