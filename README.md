@@ -12,4 +12,5 @@ with a password)
 
 ## Setup
 1. Initialize Git submodules: `git submodule update --init --recursive`
-2. Link against the `crypto_sqlite` CMake library 
+2. Link against the `crypto_sqlite` CMake library target.
+3. Implement `IDataCrypt` interface 
