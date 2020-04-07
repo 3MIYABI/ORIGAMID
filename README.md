@@ -15,4 +15,4 @@ with a password)
 2. Link against the `crypto_sqlite` CMake library target.
 3. Implement `IDataCrypt` interface (for an example see
 [test/TestCrypt.h](test/TestCrypt.h) or
-[test/PlaintextCrypt.
+[test/PlaintextCrypt.h](test/PlaintextCrypt.h))
