@@ -20,4 +20,4 @@ with a password)
 ## Usage
 Either:
 
-1. `int sqli
+1. `int sqlite3_open_encrypted(const c
