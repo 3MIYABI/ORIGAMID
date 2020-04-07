@@ -16,3 +16,8 @@ with a password)
 3. Implement `IDataCrypt` interface (for an example see
 [test/TestCrypt.h](test/TestCrypt.h) or
 [test/PlaintextCrypt.h](test/PlaintextCrypt.h))
+
+## Usage
+Either:
+
+1. `int sqli
