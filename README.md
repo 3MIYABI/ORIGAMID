@@ -20,4 +20,4 @@ with a password)
 ## Usage
 Either:
 
-1. `int sqlite3_open_encrypted(const c
+1. `int sqlite3_open_encrypted(const char *fileName, sqlite3 **db, 
