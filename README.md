@@ -20,4 +20,8 @@ with a password)
 ## Usage
 Either:
 
-1. `int sqlite3_open_encrypted(const char *fileName, sqlite3 **db, 
+1. `int sqlite3_open_encrypted(const char *fileName, sqlite3 **db, const void
+*key, int keySize)`
+Or:
+
+1. `voi
