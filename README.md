@@ -24,4 +24,4 @@ Either:
 *key, int keySize)`
 Or:
 
-1. `voi
+1. `void sqlite3_prepare_open_encrypte
