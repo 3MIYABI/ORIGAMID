@@ -29,4 +29,5 @@ int keySize)`
 2. `sqlite3_open`
 3. `sqlite3_key`
 
-**Note**: *Opening* multiple encrypted databases at the sam
+**Note**: *Opening* multiple encrypted databases at the same time is not
+thread-safe, but *using* the
