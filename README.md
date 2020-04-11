@@ -29,4 +29,4 @@ int keySize)`
 2. `sqlite3_open`
 3. `sqlite3_key`
 
-**Note**: *Opening* multipl
+**Note**: *Opening* multiple encrypted databases at the sam
