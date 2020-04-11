@@ -27,4 +27,6 @@ Or:
 1. `void sqlite3_prepare_open_encrypted(const char *fileName, const void *key,
 int keySize)`
 2. `sqlite3_open`
-3. `sq
+3. `sqlite3_key`
+
+**Note**: *Opening* multipl
