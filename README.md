@@ -30,4 +30,8 @@ int keySize)`
 3. `sqlite3_key`
 
 **Note**: *Opening* multiple encrypted databases at the same time is not
-thread-safe, but *using* the
+thread-safe, but *using* them is.
+
+
+## SQLite Compatibility
+Crypto
