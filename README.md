@@ -34,4 +34,5 @@ thread-safe, but *using* them is.
 
 
 ## SQLite Compatibility
-CryptoSQLite automatically downloads,
+CryptoSQLite automatically downloads, patches, and compiles the SQLite3
+amal
