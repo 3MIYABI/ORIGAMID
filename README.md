@@ -35,4 +35,4 @@ thread-safe, but *using* them is.
 
 ## SQLite Compatibility
 CryptoSQLite automatically downloads, patches, and compiles the SQLite3
-amal
+amalgamation source. This logic can be found 
