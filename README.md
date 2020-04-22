@@ -37,4 +37,7 @@ thread-safe, but *using* them is.
 CryptoSQLite automatically downloads, patches, and compiles the SQLite3
 amalgamation source. This logic can be found in
 [sqlite/CMakeLists.txt](sqlite/CMakeLists.txt). Updating the used SQLite3
-version is achieved by simply modifying the variables in the aforementione
+version is achieved by simply modifying the variables in the aforementioned
+`CMakeLists.txt`.  
+  
+The pat
