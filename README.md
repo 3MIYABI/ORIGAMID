@@ -40,4 +40,4 @@ amalgamation source. This logic can be found in
 version is achieved by simply modifying the variables in the aforementioned
 `CMakeLists.txt`.  
   
-The pat
+The patch exposes a private method required
