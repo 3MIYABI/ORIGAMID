@@ -41,4 +41,4 @@ version is achieved by simply modifying the variables in the aforementioned
 `CMakeLists.txt`.  
   
 The patch exposes a private method required for SQLite3 file header encryption.
-Due to its simplicity, the patch should wo
+Due to its simplicity, the patch should work for newer SQLite3 versions witho
