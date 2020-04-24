@@ -40,4 +40,5 @@ amalgamation source. This logic can be found in
 version is achieved by simply modifying the variables in the aforementioned
 `CMakeLists.txt`.  
   
-The patch exposes a private method required for SQLite3 file head
+The patch exposes a private method required for SQLite3 file header encryption.
+Due to its simplici
