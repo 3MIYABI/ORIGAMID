@@ -44,4 +44,5 @@ The patch exposes a private method required for SQLite3 file header encryption.
 Due to its simplicity, the patch should work for newer SQLite3 versions without
 changes.
 
-## Rela
+## Related Projects
+* [SQLi
