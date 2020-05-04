@@ -45,4 +45,4 @@ Due to its simplicity, the patch should work for newer SQLite3 versions without
 changes.
 
 ## Related Projects
-* [SQLiteModernCPP](https://github
+* [SQLiteModernCPP](https://github.com/SqliteModernCpp/sql
