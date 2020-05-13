@@ -47,4 +47,5 @@ changes.
 ## Related Projects
 * [SQLiteModernCPP](https://github.com/SqliteModernCpp/sqlite_modern_cpp):
 Modern SQLite3 wrapper
-* [CryptoSQLiteCPP](https://github.com/viaduck/cryptosqlitepp): Combin
+* [CryptoSQLiteCPP](https://github.com/viaduck/cryptosqlitepp): Combines
+[SQLiteModernCPP](https://g
