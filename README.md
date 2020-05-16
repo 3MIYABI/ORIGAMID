@@ -49,4 +49,4 @@ changes.
 Modern SQLite3 wrapper
 * [CryptoSQLiteCPP](https://github.com/viaduck/cryptosqlitepp): Combines
 [SQLiteModernCPP](https://github.com/SqliteModernCpp/sqlite_modern_cpp) and
-CryptoSQLite into one Git repos
+CryptoSQLite into one Git repository for simplified usage
