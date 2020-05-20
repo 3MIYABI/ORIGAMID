@@ -52,4 +52,4 @@ Modern SQLite3 wrapper
 CryptoSQLite into one Git repository for simplified usage.
 
 ## Alternatives
-The follo
+The following alternative projects already supp
