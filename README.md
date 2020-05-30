@@ -52,4 +52,5 @@ Modern SQLite3 wrapper
 CryptoSQLite into one Git repository for simplified usage.
 
 ## Alternatives
-The following alternative projects already supp
+The following alternative projects already supply ciphers to be used for
+encrypti
