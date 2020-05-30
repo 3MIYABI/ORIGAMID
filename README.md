@@ -53,4 +53,6 @@ CryptoSQLite into one Git repository for simplified usage.
 
 ## Alternatives
 The following alternative projects already supply ciphers to be used for
-encrypti
+encryption:
+
+* [SQLite3 Encryption](http
