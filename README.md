@@ -55,4 +55,5 @@ CryptoSQLite into one Git repository for simplified usage.
 The following alternative projects already supply ciphers to be used for
 encryption:
 
-* [SQLite3 Encryption](https://github.com/rindeal/SQLite3-Enc
+* [SQLite3 Encryption](https://github.com/rindeal/SQLite3-Encryption): AES-based
+SQLite3 encr
