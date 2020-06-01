@@ -56,4 +56,5 @@ The following alternative projects already supply ciphers to be used for
 encryption:
 
 * [SQLite3 Encryption](https://github.com/rindeal/SQLite3-Encryption): AES-based
-SQLite3 encryption codec depending on wxSQLit
+SQLite3 encryption codec depending on wxSQLite3
+* [SQLCipher](https://w
