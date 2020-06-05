@@ -61,4 +61,4 @@ SQLite3 encryption codec depending on wxSQLite3
 source solution
 
 ## Licensing
-This 
+This library is subject to the GNU
