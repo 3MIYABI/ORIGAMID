@@ -61,4 +61,8 @@ SQLite3 encryption codec depending on wxSQLite3
 source solution
 
 ## Licensing
-This library is subject to the GNU Lesser General Public Lice
+This library is subject to the GNU Lesser General Public License v3.0 (GNU
+LGPLv3).
+
+```
+C
