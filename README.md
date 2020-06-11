@@ -65,4 +65,6 @@ This library is subject to the GNU Lesser General Public License v3.0 (GNU
 LGPLv3).
 
 ```
-Copyright (C) 2017-2023  The ViaD
+Copyright (C) 2017-2023  The ViaDuck Project
+
+This program is
