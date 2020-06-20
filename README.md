@@ -68,4 +68,5 @@ LGPLv3).
 Copyright (C) 2017-2023  The ViaDuck Project
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as publi
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Fou
