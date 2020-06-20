@@ -67,4 +67,5 @@ LGPLv3).
 ```
 Copyright (C) 2017-2023  The ViaDuck Project
 
-This program is free software: you can redistr
+This program is free software: you can redistribute it and/or modify
+it un
