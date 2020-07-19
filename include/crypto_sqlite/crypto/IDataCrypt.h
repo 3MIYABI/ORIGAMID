@@ -1,4 +1,4 @@
 /*
  * Copyright (C) 2017-2020 The ViaDuck Project
  *
- * T
+ * This file is part of CryptoSQLite.
