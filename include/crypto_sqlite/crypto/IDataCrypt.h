@@ -18,4 +18,7 @@
  */
 
 #ifndef CRYPTOSQLITE_IDATACRYPT_H
-#define CRYPTOSQLITE_IDATAC
+#define CRYPTOSQLITE_IDATACRYPT_H
+
+#include <string>
+#
