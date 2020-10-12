@@ -21,4 +21,4 @@
 #define CRYPTOSQLITE_IDATACRYPT_H
 
 #include <string>
-#
+#include <secure_memory/St
