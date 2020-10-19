@@ -21,4 +21,8 @@
 #define CRYPTOSQLITE_IDATACRYPT_H
 
 #include <string>
-#include <secure_memory/St
+#include <secure_memory/String.h>
+
+class IDataCrypt {
+public:
+ 
