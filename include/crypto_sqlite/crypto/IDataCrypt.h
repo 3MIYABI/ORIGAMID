@@ -25,4 +25,6 @@
 
 class IDataCrypt {
 public:
-    virtual ~IDataCrypt() = de
+    virtual ~IDataCrypt() = default;
+
+    virtual void encrypt(uint32_t p
