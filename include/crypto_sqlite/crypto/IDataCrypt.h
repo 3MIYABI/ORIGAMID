@@ -25,4 +25,4 @@
 
 class IDataCrypt {
 public:
- 
+    virtual ~IDataCrypt() = de
