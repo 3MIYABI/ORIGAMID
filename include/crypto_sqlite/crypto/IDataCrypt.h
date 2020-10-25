@@ -27,4 +27,4 @@ class IDataCrypt {
 public:
     virtual ~IDataCrypt() = default;
 
-    virtual void encrypt(uint32_t page, const Buffer &source, Buffe
+    virtual void encrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &ke
