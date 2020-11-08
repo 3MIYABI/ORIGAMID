@@ -28,4 +28,6 @@ public:
     virtual ~IDataCrypt() = default;
 
     virtual void encrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const = 0;
-    virtual void decrypt(uint32_t page, const Buffer &source, Buffer &destination, cons
+    virtual void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const = 0;
+
+    v
