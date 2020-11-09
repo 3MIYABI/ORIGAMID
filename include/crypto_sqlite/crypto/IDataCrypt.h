@@ -30,4 +30,5 @@ public:
     virtual void encrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const = 0;
     virtual void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const = 0;
 
-    virtual void generateKey(Buffer &dest
+    virtual void generateKey(Buffer &destination) const = 0;
+    virtual 
