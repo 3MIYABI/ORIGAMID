@@ -31,4 +31,5 @@ public:
     virtual void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const = 0;
 
     virtual void generateKey(Buffer &destination) const = 0;
-    virtual void unwrapKey(Buffer &key, const Buffer &wrappedKey, const Buffer &
+    virtual void unwrapKey(Buffer &key, const Buffer &wrappedKey, const Buffer &wrappingKey) const = 0;
+    virt
