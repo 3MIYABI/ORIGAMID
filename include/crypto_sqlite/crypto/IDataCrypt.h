@@ -32,4 +32,6 @@ public:
 
     virtual void generateKey(Buffer &destination) const = 0;
     virtual void unwrapKey(Buffer &key, const Buffer &wrappedKey, const Buffer &wrappingKey) const = 0;
-    virtual void wrapKey(Buffer &wrappedKey, const Buffer &key, const Buffer &wrap
+    virtual void wrapKey(Buffer &wrappedKey, const Buffer &key, const Buffer &wrappingKey) const = 0;
+
+    virtual uint
