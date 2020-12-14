@@ -34,4 +34,7 @@ public:
     virtual void unwrapKey(Buffer &key, const Buffer &wrappedKey, const Buffer &wrappingKey) const = 0;
     virtual void wrapKey(Buffer &wrappedKey, const Buffer &key, const Buffer &wrappingKey) const = 0;
 
-    virtual uint
+    virtual uint32_t extraSize() const = 0;
+};
+
+#endif /
