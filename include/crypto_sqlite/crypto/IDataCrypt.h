@@ -37,4 +37,4 @@ public:
     virtual uint32_t extraSize() const = 0;
 };
 
-#endif /
+#endif //CRYPTOSQLITE_IDATACRYPT_H
