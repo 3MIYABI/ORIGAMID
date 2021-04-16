@@ -17,4 +17,5 @@
  * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CRYPTO
+#ifndef CRYPTOSQLITE_PLAINTEXTCRYPT_H
+#define CRYPTOSQ
