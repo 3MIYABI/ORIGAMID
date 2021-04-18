@@ -20,4 +20,5 @@
 #ifndef CRYPTOSQLITE_PLAINTEXTCRYPT_H
 #define CRYPTOSQLITE_PLAINTEXTCRYPT_H
 
-#in
+#include <cstring>
+#include <secure_
