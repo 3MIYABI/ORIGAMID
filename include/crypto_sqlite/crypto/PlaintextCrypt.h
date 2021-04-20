@@ -21,4 +21,5 @@
 #define CRYPTOSQLITE_PLAINTEXTCRYPT_H
 
 #include <cstring>
-#include <secure_
+#include <secure_memory/Buffer.h>
+#include <secure_m
