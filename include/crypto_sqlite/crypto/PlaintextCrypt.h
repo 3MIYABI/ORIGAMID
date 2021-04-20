@@ -22,4 +22,5 @@
 
 #include <cstring>
 #include <secure_memory/Buffer.h>
-#include <secure_m
+#include <secure_memory/BufferRange.h>
+#include 
