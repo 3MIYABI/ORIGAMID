@@ -23,4 +23,4 @@
 #include <cstring>
 #include <secure_memory/Buffer.h>
 #include <secure_memory/BufferRange.h>
-#include 
+#include <crypto_sqlite/crypto/IDataCrypt.h
