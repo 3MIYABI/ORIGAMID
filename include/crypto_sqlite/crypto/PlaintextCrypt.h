@@ -23,4 +23,6 @@
 #include <cstring>
 #include <secure_memory/Buffer.h>
 #include <secure_memory/BufferRange.h>
-#include <crypto_sqlite/crypto/IDataCrypt.h
+#include <crypto_sqlite/crypto/IDataCrypt.h>
+
+class PlaintextCrypt : publ
