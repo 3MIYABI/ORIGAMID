@@ -25,4 +25,6 @@
 #include <secure_memory/BufferRange.h>
 #include <crypto_sqlite/crypto/IDataCrypt.h>
 
-class PlaintextCrypt : publ
+class PlaintextCrypt : public IDataCrypt {
+public:
+    void e
