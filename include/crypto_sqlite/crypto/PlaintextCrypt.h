@@ -27,4 +27,4 @@
 
 class PlaintextCrypt : public IDataCrypt {
 public:
-    void e
+    void encrypt(uint32_t, cons
