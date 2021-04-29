@@ -27,4 +27,4 @@
 
 class PlaintextCrypt : public IDataCrypt {
 public:
-    void encrypt(uint32_t, const Buffer &source, Buffer &destination
+    void encrypt(uint32_t, const Buffer &source, Buffer &destination, const Buffer &) const over
