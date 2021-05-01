@@ -28,4 +28,6 @@
 class PlaintextCrypt : public IDataCrypt {
 public:
     void encrypt(uint32_t, const Buffer &source, Buffer &destination, const Buffer &) const override {
-        destination.write(source
+        destination.write(source, 0);
+    }
+    void decrypt(uint
