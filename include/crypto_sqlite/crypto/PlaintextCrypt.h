@@ -30,4 +30,4 @@ public:
     void encrypt(uint32_t, const Buffer &source, Buffer &destination, const Buffer &) const override {
         destination.write(source, 0);
     }
-    void decrypt(uint32_t page, const Buffer &source, 
+    void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &k
