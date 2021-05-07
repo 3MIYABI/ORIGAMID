@@ -31,4 +31,4 @@ public:
         destination.write(source, 0);
     }
     void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const override {
-        e
+        encrypt(page, source, destination
