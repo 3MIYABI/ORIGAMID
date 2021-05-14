@@ -35,4 +35,4 @@ public:
     }
 
     void generateKey(Buffer &) const override { }
-    void unwrapKey(Buffer &, const Buffer 
+    void unwrapKey(Buffer &, const Buffer &, const Buffer &) const o
