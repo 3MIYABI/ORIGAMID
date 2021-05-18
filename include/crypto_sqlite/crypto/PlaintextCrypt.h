@@ -38,4 +38,4 @@ public:
     void unwrapKey(Buffer &, const Buffer &, const Buffer &) const override { }
     void wrapKey(Buffer &, const Buffer &, const Buffer &) const override { }
 
-    uint32_t extraSiz
+    uint32_t extraSize() const override { return 0; }
