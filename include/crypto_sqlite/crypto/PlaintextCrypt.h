@@ -39,3 +39,7 @@ public:
     void wrapKey(Buffer &, const Buffer &, const Buffer &) const override { }
 
     uint32_t extraSize() const override { return 0; }
+};
+
+
+#endif //CRYPTOSQLITE_
