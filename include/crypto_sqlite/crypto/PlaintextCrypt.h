@@ -42,4 +42,4 @@ public:
 };
 
 
-#endif //CRYPTOSQLITE_
+#endif //CRYPTOSQLITE_PLAINTEXTCRYPT_H
