@@ -19,3 +19,43 @@
  */
 
 #ifndef CRYPTOSQLITE_CRYPTOSQLITE_H
+#define CRYPTOSQLITE_CRYPTOSQLITE_H
+
+#include <memory>
+#include <functional>
+#include <secure_memory/Buffer.h>
+#include <crypto_sqlite/crypto/IDataCrypt.h>
+
+class crypto_sqlite_exception : public std::runtime_error {
+public:
+    explicit crypto_sqlite_exception(const std::string &msg) : std::runtime_error(msg) { }
+};
+
+class crypto_sqlite {
+public:
+    using CryptoFactory = std::function<void(std::unique_ptr<IDataCrypt>&)>;
+
+    static void setCryptoFactory(CryptoFactory factory) {
+        sFactoryCrypt = std::move(factory);
+    }
+
+    static void makeDataCrypt(std::unique_ptr<IDataCrypt> &out) {
+        if (!sFactoryCrypt)
+            throw crypto_sqlite_exception("No crypto factory set.");
+
+        sFactoryCrypt(out);
+    }
+
+protected:
+    static CryptoFactory sFactoryCrypt;
+};
+
+extern "C" {
+#include <sqlite3.h>
+SQLITE_API void sqlite3_prepare_open_encrypted(const void *zKey, int nKey);
+SQLITE_API int sqlite3_open_encrypted(const char *zFilename, sqlite3 **ppDb, const void *zKey, int nKey);
+SQLITE_API int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKeyOld, const void *zKeyNew, int nKeyNew);
+SQLITE_API int sqlite3_key(sqlite3* db, const void* zKey, int nKey);
+};
+
+#endif //CRYPTOSQLITE_CRYPTOSQLITE_H
