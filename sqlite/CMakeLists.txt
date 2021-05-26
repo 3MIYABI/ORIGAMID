@@ -2,4 +2,4 @@
 #
 # This file is part of CryptoSQLite.
 #
-# CryptoSQLit
+# CryptoSQLite is free software: you ca
