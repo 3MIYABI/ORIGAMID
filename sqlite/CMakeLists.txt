@@ -16,4 +16,6 @@
 # along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-inclu
+include(ApplyPatches)
+
+# set up cache varia
