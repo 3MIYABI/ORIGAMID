@@ -18,4 +18,5 @@
 
 include(ApplyPatches)
 
-# set up cache varia
+# set up cache variables
+set(SQLITE_BUILD_VERSION
