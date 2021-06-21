@@ -19,4 +19,4 @@
 include(ApplyPatches)
 
 # set up cache variables
-set(SQLITE_BUILD_VERSION
+set(SQLITE_BUILD_VERSION "3410100" CACHE STRING "SQLite version st
