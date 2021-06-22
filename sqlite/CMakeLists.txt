@@ -20,4 +20,4 @@ include(ApplyPatches)
 
 # set up cache variables
 set(SQLITE_BUILD_VERSION "3410100" CACHE STRING "SQLite version string as used in the URL")
-set(SQLITE_BUI
+set(SQLITE_BUILD_HASH "df0d54bf246521360c8148
