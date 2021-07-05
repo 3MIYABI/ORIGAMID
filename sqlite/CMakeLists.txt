@@ -24,4 +24,5 @@ set(SQLITE_BUILD_HASH "df0d54bf246521360c8148f64e7e5ad07a4665b4f902339e844f4c493
         "SQLite amalgamation zip sha256 hash used to check the download")
 
 # build url from cache variables
-set(SQLITE_URL "https://mirror.viaduck.org/sqlite/sqlite-amalgamation-${SQLITE_BUIL
+set(SQLITE_URL "https://mirror.viaduck.org/sqlite/sqlite-amalgamation-${SQLITE_BUILD_VERSION}.zip")
+set(SQLITE_SUBDI
