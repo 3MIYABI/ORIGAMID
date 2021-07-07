@@ -27,4 +27,5 @@ set(SQLITE_BUILD_HASH "df0d54bf246521360c8148f64e7e5ad07a4665b4f902339e844f4c493
 set(SQLITE_URL "https://mirror.viaduck.org/sqlite/sqlite-amalgamation-${SQLITE_BUILD_VERSION}.zip")
 set(SQLITE_SUBDIR "sqlite-amalgamation-${SQLITE_BUILD_VERSION}")
 
-# download amalg
+# download amalgamation zip with hash check
+fil
