@@ -28,4 +28,5 @@ set(SQLITE_URL "https://mirror.viaduck.org/sqlite/sqlite-amalgamation-${SQLITE_B
 set(SQLITE_SUBDIR "sqlite-amalgamation-${SQLITE_BUILD_VERSION}")
 
 # download amalgamation zip with hash check
-fil
+file(DOWNLOAD
+        ${SQLITE_URL
