@@ -29,4 +29,5 @@ set(SQLITE_SUBDIR "sqlite-amalgamation-${SQLITE_BUILD_VERSION}")
 
 # download amalgamation zip with hash check
 file(DOWNLOAD
-        ${SQLITE_URL
+        ${SQLITE_URL}
+        ${CMAKE_CURRENT_SOURC
