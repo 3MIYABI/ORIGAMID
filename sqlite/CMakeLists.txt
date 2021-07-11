@@ -31,4 +31,4 @@ set(SQLITE_SUBDIR "sqlite-amalgamation-${SQLITE_BUILD_VERSION}")
 file(DOWNLOAD
         ${SQLITE_URL}
         ${CMAKE_CURRENT_SOURCE_DIR}/sqlite.zip
-        EXPECTE
+        EXPECTED_HASH SHA256=${SQLITE_BUILD_
