@@ -33,3 +33,6 @@ file(DOWNLOAD
         ${CMAKE_CURRENT_SOURCE_DIR}/sqlite.zip
         EXPECTED_HASH SHA256=${SQLITE_BUILD_HASH}
         SHOW_PROGRESS
+        )
+
+# unpack zip on
