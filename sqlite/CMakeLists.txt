@@ -35,4 +35,5 @@ file(DOWNLOAD
         SHOW_PROGRESS
         )
 
-# unpack zip on
+# unpack zip only if needed
+if (NOT EXISTS ${CM
