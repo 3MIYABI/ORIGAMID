@@ -36,4 +36,4 @@ file(DOWNLOAD
         )
 
 # unpack zip only if needed
-if (NOT EXISTS ${CM
+if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQ
