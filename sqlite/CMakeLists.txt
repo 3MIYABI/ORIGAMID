@@ -36,4 +36,5 @@ file(DOWNLOAD
         )
 
 # unpack zip only if needed
-if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQ
+if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQLITE_SUBDIR})
+    # unpack the amalgam
