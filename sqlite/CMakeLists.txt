@@ -38,4 +38,4 @@ file(DOWNLOAD
 # unpack zip only if needed
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQLITE_SUBDIR})
     # unpack the amalgamation zip in current dir
-    ex
+    execute_process(COMMAND ${CMAKE_COMMA
