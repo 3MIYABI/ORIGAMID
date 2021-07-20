@@ -39,4 +39,6 @@ file(DOWNLOAD
 if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQLITE_SUBDIR})
     # unpack the amalgamation zip in current dir
     execute_process(COMMAND ${CMAKE_COMMAND} -E tar x sqlite.zip
-            WORKING_
+            WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+  
