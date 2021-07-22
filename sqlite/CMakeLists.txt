@@ -41,4 +41,4 @@ if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQLITE_SUBDIR})
     execute_process(COMMAND ${CMAKE_COMMAND} -E tar x sqlite.zip
             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
-  
+    # apply our patches to sqlite
