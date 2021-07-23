@@ -42,4 +42,4 @@ if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQLITE_SUBDIR})
             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
     # apply our patches to sqlite
-    ApplyPatches("${CMAKE_CURRENT
+    ApplyPatches("${CMAKE_CURRENT_SOURCE_DIR}/patches/*.patch" "$
