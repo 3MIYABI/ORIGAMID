@@ -46,4 +46,4 @@ if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${SQLITE_SUBDIR})
 endif()
 
 # find files just downloaded
-file(GL
+file(GLOB_RECURSE SQ_FILES ${CMAKE_CUR
