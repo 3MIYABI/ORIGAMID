@@ -48,4 +48,5 @@ endif()
 # find files just downloaded
 file(GLOB_RECURSE SQ_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${SQLITE_SUBDIR}/*)
 
-# export variables to p
+# export variables to parent scope
+set(SQLITE_FILES SQ_FILES PAR
