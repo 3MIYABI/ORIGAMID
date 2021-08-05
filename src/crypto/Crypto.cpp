@@ -11,3 +11,27 @@
  *
  * CryptoSQLite is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
+ */
+#include "Crypto.h"
+
+#include "FileWrapper.h"
+#include <crypto_sqlite/crypto_sqlite.h>
+
+Crypto::Crypto(const std::string &dbFileName, const void *fileKey, int keylen, int exists)
+        : mFileName(dbFileName + "-keyfile") {
+    crypto_sqlite::makeDataCrypt(mDataCrypt);
+
+    if (!exists) {
+        // generate new key and wrap it to buffer
+        mDataCrypt->generateKey(mKey);
+        wrapKey(fileKey, keylen);
+    }
+    else {
+        // read existing keyfile and unwrap key
+        readKeyFile();
+        unwrapKey(fileKey, keylen);
