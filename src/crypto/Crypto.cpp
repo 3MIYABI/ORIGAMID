@@ -35,3 +35,34 @@ Crypto::Crypto(const std::string &dbFileName, const void *fileKey, int keylen, i
         // read existing keyfile and unwrap key
         readKeyFile();
         unwrapKey(fileKey, keylen);
+    }
+}
+
+void Crypto::rekey(const void *newFileKey, int keylen) {
+    wrapKey(newFileKey, keylen);
+    writeKeyFile();
+}
+
+void Crypto::wrapKey(const void *fileKey, int keylen) {
+    Buffer wrappingKey;
+    wrappingKey.write(fileKey, keylen, 0);
+
+    mWrappedKey.clear();
+    mDataCrypt->wrapKey(mWrappedKey, mKey, wrappingKey);
+}
+
+void Crypto::unwrapKey(const void *fileKey, int keylen) {
+    Buffer wrappingKey;
+    wrappingKey.write(fileKey, keylen, 0);
+
+    mKey.clear();
+    mDataCrypt->unwrapKey(mKey, mWrappedKey, wrappingKey);
+}
+
+void Crypto::writeKeyFile() {
+    Buffer content;
+    mWrappedKey.serializeAppend(content);
+    mFirstPage.serializeAppend(content);
+
+    FileWrapper keyfile(mFileName);
+    keyfile.writeFile(content);
