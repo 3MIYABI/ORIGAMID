@@ -66,3 +66,29 @@ void Crypto::writeKeyFile() {
 
     FileWrapper keyfile(mFileName);
     keyfile.writeFile(content);
+}
+
+void Crypto::readKeyFile() {
+    Buffer content;
+    FileWrapper keyfile(mFileName);
+    keyfile.readFile(content);
+
+    BufferRangeConst chain(content);
+    mWrappedKey.deserialize(chain);
+    mFirstPage.deserialize(chain);
+}
+
+const void *Crypto::encryptPage(const void *page, uint32_t pageSize, int pageNo) {
+    // copy plaintext to input buffer
+    mPageBufferIn.write(page, pageSize, 0);
+    // encrypt to output buffer
+    mDataCrypt->encrypt(pageNo, mPageBufferIn, mPageBufferOut, mKey);
+    // cache encrypted first page and write it to keyfile
+    if (pageNo == 1) {
+        mFirstPage.clear();
+        mFirstPage.write(mPageBufferOut, 0);
+        writeKeyFile();
+    }
+    // return pointer to point to ciphertext
+    return pageBufferOut();
+}
