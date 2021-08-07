@@ -92,3 +92,25 @@ const void *Crypto::encryptPage(const void *page, uint32_t pageSize, int pageNo)
     // return pointer to point to ciphertext
     return pageBufferOut();
 }
+
+void Crypto::decryptPage(void *pageInOut, uint32_t pageSize, int pageNo) {
+    // copy ciphertext to input buffer
+    if (pageInOut) mPageBufferIn.write(pageInOut, pageSize, 0);
+    // decrypt to output buffer
+    mDataCrypt->decrypt(pageNo, mPageBufferIn, mPageBufferOut, mKey);
+    // overwrite ciphertext with plaintext
+    if (pageInOut) memcpy(pageInOut, pageBufferOut(), pageSize);
+}
+
+void Crypto::decryptFirstPageCache() {
+    // fit page buffers to cache or minimum page size if cache empty
+    resizePageBuffers(std::max(mFirstPage.size(), 512u));
+    // decrypt first page from cache or leave 0-bytes if cache empty
+    if (mFirstPage.size() > 0) mDataCrypt->decrypt(1, mFirstPage, mPageBufferOut, mKey);
+}
+
+void Crypto::resizePageBuffers(uint32_t size) {
+    mPageBufferIn.clear();
+    mPageBufferIn.padd(size, 0);
+
+    mPageBufferOut.clear();
