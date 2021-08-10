@@ -16,3 +16,33 @@
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
+ */
+#ifndef CRYPTOSQLITE_CRYPTO_H
+#define CRYPTOSQLITE_CRYPTO_H
+
+#include <crypto_sqlite/crypto/IDataCrypt.h>
+
+class Crypto {
+public:
+    Crypto(const std::string &dbFileName, const void *fileKey, int keylen, int exists);
+
+    void rekey(const void *newFileKey, int keylen);
+    const void *encryptPage(const void *pageIn, uint32_t pageSize, int pageNo);
+    void decryptPage(void *pageInOut, uint32_t pageSize, int pageNo);
+    void decryptFirstPageCache();
+
+    uint32_t extraSize();
+
+    void resizePageBuffers(uint32_t size);
+    uint8_t *pageBufferIn() { return mPageBufferIn.data(); }
+    const uint8_t *pageBufferOut() { return mPageBufferOut.const_data(); }
+
+protected:
+    void wrapKey(const void *fileKey, int keylen);
+    void unwrapKey(const void *fileKey, int keylen);
+    void writeKeyFile();
+    void readKeyFile();
+
+    // extern crypto plugin
+    std::unique_ptr<IDataCrypt> mDataCrypt;
+    // keyfile name
