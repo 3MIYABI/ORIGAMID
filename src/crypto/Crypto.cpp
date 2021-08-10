@@ -114,3 +114,9 @@ void Crypto::resizePageBuffers(uint32_t size) {
     mPageBufferIn.padd(size, 0);
 
     mPageBufferOut.clear();
+    mPageBufferOut.padd(size, 0);
+}
+
+uint32_t Crypto::extraSize() {
+    return mDataCrypt->extraSize();
+}
