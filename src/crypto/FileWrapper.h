@@ -17,3 +17,33 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+#ifndef CRYPTOSQLITE_KEYFILE_H
+#define CRYPTOSQLITE_KEYFILE_H
+
+#include <crypto_sqlite/crypto_sqlite.h>
+#include <cstdio>
+
+class FileWrapper {
+public:
+    explicit FileWrapper(const std::string &filename) {
+        // try to open existing file
+        mFile = fopen(filename.c_str(), "r+b");
+
+        if (nullptr == mFile) {
+            // mark file as empty
+            mEmpty = true;
+
+            // try to create non existing file
+            mFile = fopen(filename.c_str(), "w+b");
+
+            // could not create file
+            if (nullptr == mFile)
+                throw crypto_sqlite_exception("File could not be created");
+        }
+    }
+
+    ~FileWrapper() {
+        if (nullptr != mFile)
+            fclose(mFile);
+    }
