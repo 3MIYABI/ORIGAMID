@@ -46,3 +46,11 @@ protected:
     // extern crypto plugin
     std::unique_ptr<IDataCrypt> mDataCrypt;
     // keyfile name
+    std::string mFileName;
+    // cache
+    Buffer mWrappedKey, mFirstPage;
+    // state, input, output
+    Buffer mKey, mPageBufferIn, mPageBufferOut;
+};
+
+#endif //CRYPTOSQLITE_CRYPTO_H
