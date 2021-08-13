@@ -47,3 +47,37 @@ public:
         if (nullptr != mFile)
             fclose(mFile);
     }
+
+    bool isEmpty() const {
+        return mEmpty;
+    }
+
+    void writeFile(const Buffer &data) {
+        // rewind
+        fseek(mFile, 0, SEEK_SET);
+
+        // write data to file
+        if (data.size() != fwrite(data.const_data(), 1, data.size(), mFile))
+            throw crypto_sqlite_exception("Failed to write keyfile");
+
+        // write to disk
+        fflush(mFile);
+
+        // mark non-empty
+        mEmpty = false;
+    }
+
+    void readFile(Buffer &contents) {
+        // seek to end to tell size
+        fseek(mFile, 0, SEEK_END);
+
+        // tell size
+        long fsizel = ftell(mFile);
+
+        if (fsizel < 0)
+            throw crypto_sqlite_exception("ftell failed");
+
+        auto fsize = static_cast<uint32_t>(fsizel);
+
+        // rewind <<
+        fseek(mFile, 0, SEEK_SET);
