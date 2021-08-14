@@ -81,3 +81,18 @@ public:
 
         // rewind <<
         fseek(mFile, 0, SEEK_SET);
+
+        // create and pre-pad buffer to file size
+        contents.padd(fsize, 0);
+
+        // read entire file into buffer
+        if (fsize != fread(contents.data(), 1, fsize, mFile))
+            throw crypto_sqlite_exception("File could not be read");
+    }
+
+protected:
+    FILE *mFile;
+    bool mEmpty = false;
+};
+
+#endif //CRYPTOSQLITE_KEYFILE_H
