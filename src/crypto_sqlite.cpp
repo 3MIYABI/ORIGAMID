@@ -1,2 +1,4 @@
 /*
- * Copyright (C) 2017-2020 The ViaDuck 
+ * Copyright (C) 2017-2020 The ViaDuck Project
+ *
+ * This file is p
