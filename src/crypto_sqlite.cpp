@@ -1,4 +1,6 @@
 /*
  * Copyright (C) 2017-2020 The ViaDuck Project
  *
- * This file is p
+ * This file is part of CryptoSQLite.
+ *
+ * Cry
