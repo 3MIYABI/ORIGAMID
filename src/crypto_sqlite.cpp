@@ -3,4 +3,4 @@
  *
  * This file is part of CryptoSQLite.
  *
- * Cry
+ * CryptoSQLite is free software: yo
