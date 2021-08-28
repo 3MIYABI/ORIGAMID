@@ -8,4 +8,4 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * CryptoSQLite is distribu
+ * CryptoSQLite is distributed in the hope that it will be u
