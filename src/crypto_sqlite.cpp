@@ -17,4 +17,5 @@
  * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <crypto_sqlite/c
+#include <crypto_sqlite/crypto_sqlite.h>
+#include "vfs/VFS.h
