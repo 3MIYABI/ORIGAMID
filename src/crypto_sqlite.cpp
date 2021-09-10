@@ -18,4 +18,6 @@
  */
 
 #include <crypto_sqlite/crypto_sqlite.h>
-#include "vfs/VFS.h
+#include "vfs/VFS.h"
+
+crypto_sqlite::CryptoFactory crypto
