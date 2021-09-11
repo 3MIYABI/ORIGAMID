@@ -20,4 +20,6 @@
 #include <crypto_sqlite/crypto_sqlite.h>
 #include "vfs/VFS.h"
 
-crypto_sqlite::CryptoFactory crypto
+crypto_sqlite::CryptoFactory crypto_sqlite::sFactoryCrypt;
+
+void sqlite3
