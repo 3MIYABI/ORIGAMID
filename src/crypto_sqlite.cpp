@@ -22,4 +22,5 @@
 
 crypto_sqlite::CryptoFactory crypto_sqlite::sFactoryCrypt;
 
-void sqlite3_prepare_open_encrypted(const v
+void sqlite3_prepare_open_encrypted(const void *zKey, int nKey) {
+    VF
