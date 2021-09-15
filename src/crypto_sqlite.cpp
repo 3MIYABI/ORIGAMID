@@ -23,4 +23,7 @@
 crypto_sqlite::CryptoFactory crypto_sqlite::sFactoryCrypt;
 
 void sqlite3_prepare_open_encrypted(const void *zKey, int nKey) {
-    VFS::instance()->prepare(zKe
+    VFS::instance()->prepare(zKey, nKey);
+}
+
+int sqlite3_open_encrypted
