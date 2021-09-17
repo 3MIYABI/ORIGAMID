@@ -26,4 +26,4 @@ void sqlite3_prepare_open_encrypted(const void *zKey, int nKey) {
     VFS::instance()->prepare(zKey, nKey);
 }
 
-int sqlite3_open_encrypted
+int sqlite3_open_encrypted(const char *zFilename, sqlite3 *
