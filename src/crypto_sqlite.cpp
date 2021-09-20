@@ -29,4 +29,6 @@ void sqlite3_prepare_open_encrypted(const void *zKey, int nKey) {
 int sqlite3_open_encrypted(const char *zFilename, sqlite3 **ppDb, const void *zKey, int nKey) {
     // no key specified
     if (zKey == nullptr || nKey <= 0)
-        return sqlite3_open(zFilena
+        return sqlite3_open(zFilename, ppDb);
+
+    // pre
