@@ -32,4 +32,6 @@ int sqlite3_open_encrypted(const char *zFilename, sqlite3 **ppDb, const void *zK
         return sqlite3_open(zFilename, ppDb);
 
     // prepare the call to open
-    sqlite3_pre
+    sqlite3_prepare_open_encrypted(zKey, nKey);
+
+ 
