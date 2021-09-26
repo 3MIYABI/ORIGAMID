@@ -35,4 +35,5 @@ int sqlite3_open_encrypted(const char *zFilename, sqlite3 **ppDb, const void *zK
     sqlite3_prepare_open_encrypted(zKey, nKey);
 
     int rc = sqlite3_open(zFilename, ppDb);
-    if (rc
+    if (rc == SQLITE_OK)
+        rc = sql
