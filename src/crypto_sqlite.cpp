@@ -36,4 +36,6 @@ int sqlite3_open_encrypted(const char *zFilename, sqlite3 **ppDb, const void *zK
 
     int rc = sqlite3_open(zFilename, ppDb);
     if (rc == SQLITE_OK)
-        rc = sql
+        rc = sqlite3_key(*ppDb, nullptr, 0);
+
+    re
