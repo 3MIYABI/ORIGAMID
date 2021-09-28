@@ -41,4 +41,4 @@ int sqlite3_open_encrypted(const char *zFilename, sqlite3 **ppDb, const void *zK
     return rc;
 }
 
-int sqlite3
+int sqlite3_rekey_encrypted(const char *
