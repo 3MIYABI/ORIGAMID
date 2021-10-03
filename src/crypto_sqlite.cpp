@@ -43,4 +43,6 @@ int sqlite3_open_encrypted(const char *zFilename, sqlite3 **ppDb, const void *zK
 
 int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKeyOld, const void *zKeyNew, int nKeyNew) {
     // temp db
-    sq
+    sqlite3 *pDB;
+
+    // open temp db
