@@ -46,4 +46,5 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
     sqlite3 *pDB;
 
     // open temp db encrypted
-    int rc = sqlite3_open_encrypted(zFilename, 
+    int rc = sqlite3_open_encrypted(zFilename, &pDB, zKeyOld, nKeyOld);
+    if 
