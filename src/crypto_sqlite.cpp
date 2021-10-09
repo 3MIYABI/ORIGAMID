@@ -49,4 +49,4 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
     int rc = sqlite3_open_encrypted(zFilename, &pDB, zKeyOld, nKeyOld);
     if (rc == SQLITE_OK) {
         // find main db file
-        const c
+        const char *fileName = sqlite3_db_filename(pD
