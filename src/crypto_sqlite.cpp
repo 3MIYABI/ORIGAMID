@@ -48,4 +48,5 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
     // open temp db encrypted
     int rc = sqlite3_open_encrypted(zFilename, &pDB, zKeyOld, nKeyOld);
     if (rc == SQLITE_OK) {
-     
+        // find main db file
+        const c
