@@ -50,4 +50,6 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
     if (rc == SQLITE_OK) {
         // find main db file
         const char *fileName = sqlite3_db_filename(pDB, "main");
-        File *mainDB = VFS::instance()->findMainDatab
+        File *mainDB = VFS::instance()->findMainDatabase(fileName);
+
+        // write keyf
