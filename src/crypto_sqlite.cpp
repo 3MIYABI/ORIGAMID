@@ -53,4 +53,5 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
         File *mainDB = VFS::instance()->findMainDatabase(fileName);
 
         // write keyfile with new file key
-        if (mainD
+        if (mainDB && mainDB->mCrypto) {
+       
