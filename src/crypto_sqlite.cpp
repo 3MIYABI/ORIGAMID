@@ -54,4 +54,4 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
 
         // write keyfile with new file key
         if (mainDB && mainDB->mCrypto) {
-       
+            mainDB->mCrypto->reke
