@@ -56,4 +56,5 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
         if (mainDB && mainDB->mCrypto) {
             mainDB->mCrypto->rekey(zKeyNew, nKeyNew);
             rc = sqlite3_close(pDB);
-  
+        } else {
+            rc 
