@@ -58,4 +58,11 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
             rc = sqlite3_close(pDB);
         } else {
             rc = SQLITE_ERROR;
-            sq
+            sqlite3_close(pDB);
+        }
+    }
+
+    return rc;
+}
+
+int sqlite3_key
