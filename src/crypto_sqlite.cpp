@@ -65,4 +65,4 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
     return rc;
 }
 
-int sqlite3_key
+int sqlite3_key(sqlite3* db, const void*, int) {
