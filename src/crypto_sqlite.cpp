@@ -66,4 +66,5 @@ int sqlite3_rekey_encrypted(const char *zFilename, const void *zKeyOld, int nKey
 }
 
 int sqlite3_key(sqlite3* db, const void*, int) {
-    // The key is only set for the main database, not the temp dat
+    // The key is only set for the main database, not the temp database
+    const char *fileName =
