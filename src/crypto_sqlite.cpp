@@ -70,4 +70,5 @@ int sqlite3_key(sqlite3* db, const void*, int) {
     const char *fileName = sqlite3_db_filename(db, "main");
 
     // attach to db
-    File *mainDB = VFS::instance(
+    File *mainDB = VFS::instance()->findMainDatabase(fileName);
+    i
