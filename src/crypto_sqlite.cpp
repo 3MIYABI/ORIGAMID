@@ -71,4 +71,6 @@ int sqlite3_key(sqlite3* db, const void*, int) {
 
     // attach to db
     File *mainDB = VFS::instance()->findMainDatabase(fileName);
-    int rv = mainDB ? mainDB->attac
+    int rv = mainDB ? mainDB->attach(db, 0) : SQLITE_ERROR;
+
+   
