@@ -74,4 +74,6 @@ int sqlite3_key(sqlite3* db, const void*, int) {
     int rv = mainDB ? mainDB->attach(db, 0) : SQLITE_ERROR;
 
     // release VFS
-    VFS::instance(
+    VFS::instance()->finish();
+    return rv;
+}
