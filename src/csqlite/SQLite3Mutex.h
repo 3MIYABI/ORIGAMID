@@ -9,4 +9,4 @@
  * (at your option) any later version.
  *
  * CryptoSQLite is distributed in the hope that it will be useful,
- * b
+ * but WITHOUT ANY WARRANTY; withou
