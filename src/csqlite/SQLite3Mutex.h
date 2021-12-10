@@ -17,4 +17,5 @@
  * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef 
+#ifndef CRYPTOSQLITE_SQLITE3MUTEX_H
+#defi
