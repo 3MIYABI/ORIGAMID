@@ -20,4 +20,6 @@
 #ifndef CRYPTOSQLITE_SQLITE3MUTEX_H
 #define CRYPTOSQLITE_SQLITE3MUTEX_H
 
-c
+class SQLite3Mutex {
+public:
+ 
