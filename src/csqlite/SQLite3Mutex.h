@@ -22,4 +22,4 @@
 
 class SQLite3Mutex {
 public:
-    SQLite3Mutex() : mMutex(s
+    SQLite3Mutex() : mMutex(sqlite3_mutex_alloc(SQLITE_M
