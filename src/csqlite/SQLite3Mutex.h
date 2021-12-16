@@ -22,4 +22,4 @@
 
 class SQLite3Mutex {
 public:
-    SQLite3Mutex() : mMutex(sqlite3_mutex_alloc(SQLITE_M
+    SQLite3Mutex() : mMutex(sqlite3_mutex_alloc(SQLITE_MUTEX_RECURSIVE)), mOwned(true
