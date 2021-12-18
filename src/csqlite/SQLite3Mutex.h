@@ -23,4 +23,7 @@
 class SQLite3Mutex {
 public:
     SQLite3Mutex() : mMutex(sqlite3_mutex_alloc(SQLITE_MUTEX_RECURSIVE)), mOwned(true) {
-        // TODO: errorhandli
+        // TODO: errorhandling if !mMutex
+    }
+
+    SQLite3Mu
