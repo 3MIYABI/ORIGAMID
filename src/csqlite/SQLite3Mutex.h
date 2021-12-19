@@ -26,4 +26,6 @@ public:
         // TODO: errorhandling if !mMutex
     }
 
-    SQLite3Mutex(sqlite3_mutex *mutex) : mMutex(m
+    SQLite3Mutex(sqlite3_mutex *mutex) : mMutex(mutex) { }
+
+    ~SQLite3Mutex() {
