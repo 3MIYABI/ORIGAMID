@@ -29,3 +29,5 @@ public:
     SQLite3Mutex(sqlite3_mutex *mutex) : mMutex(mutex) { }
 
     ~SQLite3Mutex() {
+        if (mOwned)
+            sqli
