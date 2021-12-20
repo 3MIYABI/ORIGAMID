@@ -30,4 +30,7 @@ public:
 
     ~SQLite3Mutex() {
         if (mOwned)
-            sqli
+            sqlite3_mutex_free(mMutex);
+    }
+
+    vo
