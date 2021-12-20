@@ -33,4 +33,5 @@ public:
             sqlite3_mutex_free(mMutex);
     }
 
-    vo
+    void lock() {
+        sqlite3
