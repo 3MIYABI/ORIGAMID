@@ -37,4 +37,5 @@ public:
         sqlite3_mutex_enter(mMutex);
     }
 
-   
+    void unlock() {
+        sqlite3
