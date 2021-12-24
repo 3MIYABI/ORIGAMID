@@ -38,4 +38,7 @@ public:
     }
 
     void unlock() {
-        sqlite3
+        sqlite3_mutex_leave(mMutex);
+    }
+
+protec
