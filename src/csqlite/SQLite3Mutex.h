@@ -41,4 +41,5 @@ public:
         sqlite3_mutex_leave(mMutex);
     }
 
-protec
+protected:
+    sqlite3_mutex *mMute
