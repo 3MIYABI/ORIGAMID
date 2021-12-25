@@ -42,4 +42,5 @@ public:
     }
 
 protected:
-    sqlite3_mutex *mMute
+    sqlite3_mutex *mMutex;
+    bool mOwned = false;
