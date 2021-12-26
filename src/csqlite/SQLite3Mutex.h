@@ -44,3 +44,6 @@ public:
 protected:
     sqlite3_mutex *mMutex;
     bool mOwned = false;
+};
+
+class SQLite3LockGuard 
