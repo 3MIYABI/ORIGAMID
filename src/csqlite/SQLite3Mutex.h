@@ -46,4 +46,6 @@ protected:
     bool mOwned = false;
 };
 
-class SQLite3LockGuard 
+class SQLite3LockGuard {
+public:
+    explicit SQLite3LockGuard(
