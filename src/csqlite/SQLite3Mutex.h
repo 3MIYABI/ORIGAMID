@@ -50,3 +50,7 @@ class SQLite3LockGuard {
 public:
     explicit SQLite3LockGuard(SQLite3Mutex &mutex) : mMutex(mutex) {
         mMutex.lock();
+    }
+
+    ~SQLite3LockGuard() {
+ 
