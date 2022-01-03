@@ -54,4 +54,7 @@ public:
 
     ~SQLite3LockGuard() {
         mMutex.unlock();
-    
+    }
+
+protected:
+    SQLite3
