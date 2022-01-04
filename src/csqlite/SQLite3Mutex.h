@@ -57,4 +57,7 @@ public:
     }
 
 protected:
-    SQLite3
+    SQLite3Mutex &mMutex;
+};
+
+#e
