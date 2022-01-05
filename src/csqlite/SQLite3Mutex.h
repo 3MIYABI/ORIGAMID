@@ -60,4 +60,4 @@ protected:
     SQLite3Mutex &mMutex;
 };
 
-#e
+#endif //CRYPTOSQLITE_SQLITE3MUTEX_H
