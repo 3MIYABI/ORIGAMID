@@ -1,2 +1,4 @@
 /*
- * Copyright (C) 2020 The ViaDuck Proj
+ * Copyright (C) 2020 The ViaDuck Project
+ *
+ * This file is part of Cryp
