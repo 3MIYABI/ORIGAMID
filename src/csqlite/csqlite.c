@@ -18,4 +18,5 @@
  */
 
 // must be first include
-#
+#include <sqlite3.c>
+#include "cs
