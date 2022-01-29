@@ -19,4 +19,6 @@
 
 // must be first include
 #include <sqlite3.c>
-#include "cs
+#include "csqlite.h"
+
+struct sqlite3_mu
