@@ -21,4 +21,4 @@
 #include <sqlite3.c>
 #include "csqlite.h"
 
-struct sqlite3_mu
+struct sqlite3_mutex *csqlite3_get_mutex(struct s
