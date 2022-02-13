@@ -25,4 +25,5 @@ struct sqlite3_mutex *csqlite3_get_mutex(struct sqlite3 *db) {
     return db->mutex;
 }
 
-void csqlite3_reserve_page(sqlite3 *db, int nDb, int
+void csqlite3_reserve_page(sqlite3 *db, int nDb, int *pageSize, int reservedSize) {
+    *p
