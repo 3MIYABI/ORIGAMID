@@ -30,4 +30,5 @@ void csqlite3_reserve_page(sqlite3 *db, int nDb, int *pageSize, int reservedSize
     sqlite3BtreeSetPageSize(db->aDb[nDb].pBt, *pageSize, reservedSize, 1);
 }
 
-uint32_t csqlite3_get4byte(const uin
+uint32_t csqlite3_get4byte(const uint8_t *data) {
+    return sqlite3G
