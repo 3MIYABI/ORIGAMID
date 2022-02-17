@@ -31,4 +31,5 @@ void csqlite3_reserve_page(sqlite3 *db, int nDb, int *pageSize, int reservedSize
 }
 
 uint32_t csqlite3_get4byte(const uint8_t *data) {
-    return sqlite3G
+    return sqlite3Get4byte(data);
+}
