@@ -1,4 +1,6 @@
 /*
  * Copyright (C) 2020 The ViaDuck Project
  *
- * This file is part of CryptoSQ
+ * This file is part of CryptoSQLite.
+ *
+ * CryptoSQLite is free so
