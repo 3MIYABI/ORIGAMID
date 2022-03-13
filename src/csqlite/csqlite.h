@@ -19,4 +19,6 @@
 #ifndef CRYPTOSQLITE_CSQLITE_H
 #define CRYPTOSQLITE_CSQLITE_H
 
-#ifdef __c
+#ifdef __cplusplus
+extern "C" {
+#
