@@ -23,4 +23,7 @@
 extern "C" {
 #endif
 
-#include <sqlite3
+#include <sqlite3.h>
+#include <stdint.h>
+
+sqlite3_mutex *cs
