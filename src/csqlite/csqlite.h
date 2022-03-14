@@ -26,4 +26,5 @@ extern "C" {
 #include <sqlite3.h>
 #include <stdint.h>
 
-sqlite3_mutex *cs
+sqlite3_mutex *csqlite3_get_mutex(sqlite3 *db);
+voi
