@@ -27,4 +27,4 @@ extern "C" {
 #include <stdint.h>
 
 sqlite3_mutex *csqlite3_get_mutex(sqlite3 *db);
-void csqlite3_reserve_page(sqli
+void csqlite3_reserve_page(sqlite3 *db, int nDb, int *pageSize,
