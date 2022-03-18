@@ -33,4 +33,4 @@ uint32_t csqlite3_get4byte(const uint8_t *data);
 #ifdef __cplusplus
 };
 #endif
-#endif //CRYPTOS
+#endif //CRYPTOSQLITE_CSQLITE_H
