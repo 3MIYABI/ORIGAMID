@@ -71,3 +71,32 @@ int File::close() {
     // forward actual close
     return mUnderlying->pMethods->xClose(mUnderlying);
 }
+
+int File::read(void *buffer, int count, sqlite3_int64 offset) {
+    // forward actual read
+    auto rv = FILE_FORWARD(this, xRead, buffer, count, offset);
+    if (rv != SQLITE_OK)
+        return rv;
+
+    if (mCrypto) {
+        switch (mOpenFlags & SQLITE_OPEN_MASK) {
+            case SQLITE_OPEN_MAIN_DB:
+                return readMainDB(buffer, count, offset);
+
+            case SQLITE_OPEN_MAIN_JOURNAL:
+            case SQLITE_OPEN_SUBJOURNAL:
+                return readJournal(buffer, count, offset);
+
+            case SQLITE_OPEN_WAL:
+                return readWal(buffer, count, offset);
+
+            case SQLITE_OPEN_TEMP_DB:
+            case SQLITE_OPEN_TRANSIENT_DB:
+            case SQLITE_OPEN_TEMP_JOURNAL:
+                // TODO ?
+                break;
+
+            case SQLITE_OPEN_MASTER_JOURNAL:
+                /** Contains only administrative information, no encryption necessary. **/
+            default:
+                break;
