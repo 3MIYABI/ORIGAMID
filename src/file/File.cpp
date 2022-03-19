@@ -42,3 +42,32 @@ sqlite3_io_methods File::gSQLiteIOMethods = {
         sIoShmLock,                /* xShmLock */
         sIoShmBarrier,             /* xShmBarrier */
         sIoShmUnmap,               /* xShmUnmap */
+        sIoFetch,                  /* xFetch */
+        sIoUnfetch,                /* xUnfetch */
+};
+
+int File::attach(sqlite3 *db, int nDb) {
+    // lock while modifying page size
+    SQLite3Mutex mutex(csqlite3_get_mutex(db));
+    SQLite3LockGuard lock(mutex);
+
+    // TODO: add support for attached dbs
+
+    // Set page size to its default, but add our size to be reserved at the end of the page
+    csqlite3_reserve_page(db, nDb, &mPageSize, mCrypto->extraSize());
+    mCrypto->resizePageBuffers(mPageSize);
+    return SQLITE_OK;
+}
+
+int File::close() {
+    // clean from list
+    if (mOpenFlags & SQLITE_OPEN_MAIN_DB)
+        VFS::instance()->removeDatabase(this);
+
+    // cleanup state
+    if (!mDB) delete mCrypto;
+    mCrypto = nullptr;
+
+    // forward actual close
+    return mUnderlying->pMethods->xClose(mUnderlying);
+}
