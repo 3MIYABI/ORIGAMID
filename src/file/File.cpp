@@ -100,3 +100,37 @@ int File::read(void *buffer, int count, sqlite3_int64 offset) {
                 /** Contains only administrative information, no encryption necessary. **/
             default:
                 break;
+        }
+    }
+
+    return rv;
+}
+
+int File::write(const void *buffer, int count, sqlite3_int64 offset) {
+    if (mCrypto) {
+        switch (mOpenFlags & SQLITE_OPEN_MASK) {
+            case SQLITE_OPEN_MAIN_DB:
+                return writeMainDB(buffer, count, offset);
+
+            case SQLITE_OPEN_MAIN_JOURNAL:
+            case SQLITE_OPEN_SUBJOURNAL:
+                return writeJournal(buffer, count, offset);
+
+            case SQLITE_OPEN_WAL:
+                return writeWal(buffer, count, offset);
+
+            case SQLITE_OPEN_TEMP_DB:
+            case SQLITE_OPEN_TRANSIENT_DB:
+            case SQLITE_OPEN_TEMP_JOURNAL:
+                // TODO ?
+                break;
+
+            case SQLITE_OPEN_MASTER_JOURNAL:
+                /** Contains only administrative information, no encryption necessary. **/
+            default:
+                break;
+        }
+    }
+
+    // forward actual write
+    return FILE_FORWARD(this, xWrite, buffer, count, offset);
