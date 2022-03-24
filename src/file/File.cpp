@@ -165,3 +165,37 @@ int File::readMainDB(void *buffer, int count, sqlite3_int64 offset) {
 
         // return data
         memcpy(buffer, mCrypto->pageBufferOut() + dOffset, count);
+    }
+    else {
+        // do full page read
+        assert(count == mPageSize);
+
+        int pageNo = offset / mPageSize + 1;
+        mCrypto->decryptPage(buffer, mPageSize, pageNo);
+    }
+
+    return rv;
+}
+
+int File::readJournal(void *buffer, int count, sqlite3_int64) {
+    if (count == mPageSize && mPageNo != 0) {
+        // decrypt page buffer
+        mCrypto->decryptPage(buffer, mPageSize, mPageNo);
+        mPageNo = 0;
+    }
+    else if (count == 4) {
+        // sqlite always reads the pageno from journal file before reading page content
+        mPageNo = csqlite3_get4byte(static_cast<uint8_t*>(buffer));
+    }
+
+    return SQLITE_OK;
+}
+
+int File::readWal(void *buffer, int count, sqlite_int64 offset) {
+    int rv = SQLITE_OK;
+
+    if (count == mPageSize) {
+        int pageNo;
+        uint8_t temp[4];
+
+        rv = FILE_FORWARD(this, xRead, temp, 4, offset - SQLITE_WAL_FRAMEHEADER_SIZE);
