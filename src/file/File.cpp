@@ -134,3 +134,34 @@ int File::write(const void *buffer, int count, sqlite3_int64 offset) {
 
     // forward actual write
     return FILE_FORWARD(this, xWrite, buffer, count, offset);
+}
+
+int File::readMainDB(void *buffer, int count, sqlite3_int64 offset) {
+    int rv = SQLITE_OK;
+
+    // special case: read database header
+    if (offset == 0 && count < 512 && mPageSize == 0) {
+        mCrypto->decryptFirstPageCache();
+        memcpy(buffer, mCrypto->pageBufferOut(), count);
+        return rv;
+    }
+
+    // prepare values
+    int dOffset = offset % mPageSize;
+
+    if (count != 0 || dOffset != 0) {
+        // do partial page read
+        assert(dOffset + count <= mPageSize);
+        sqlite3_int64 prevOffset = offset - dOffset;
+
+        // read full page with new parameters
+        rv = FILE_FORWARD(this, xRead, mCrypto->pageBufferIn(), mPageSize, prevOffset);
+        if (rv != SQLITE_OK)
+            return rv;
+
+        // calculate page number and decrypt
+        int pageNo = prevOffset / mPageSize + 1;
+        mCrypto->decryptPage(nullptr, mPageSize, pageNo);
+
+        // return data
+        memcpy(buffer, mCrypto->pageBufferOut() + dOffset, count);
