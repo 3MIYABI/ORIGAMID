@@ -199,3 +199,38 @@ int File::readWal(void *buffer, int count, sqlite_int64 offset) {
         uint8_t temp[4];
 
         rv = FILE_FORWARD(this, xRead, temp, 4, offset - SQLITE_WAL_FRAMEHEADER_SIZE);
+        if (rv == SQLITE_OK && (pageNo = csqlite3_get4byte(temp)) != 0) {
+            // decrypt page buffer
+            mCrypto->decryptPage(buffer, mPageSize, pageNo);
+        }
+    }
+
+    return rv;
+}
+
+int File::writeMainDB(const void *buffer, int count, sqlite3_int64 offset) {
+    // only full page writes
+    assert(offset % mPageSize == 0 && count == mPageSize);
+
+    int pageNo = offset / mPageSize + 1;
+    buffer = mCrypto->encryptPage(buffer, mPageSize, pageNo);
+
+    return FILE_FORWARD(this, xWrite, buffer, mPageSize, offset);
+}
+
+int File::writeJournal(const void *buffer, int count, sqlite3_int64 offset) {
+    int rv = SQLITE_OK;
+
+    if (count == mPageSize && mPageNo != 0) {
+        // encrypt full page buffer
+        buffer = mCrypto->encryptPage(buffer, mPageSize, mPageNo);
+        rv = FILE_FORWARD(this, xWrite, buffer, mPageSize, offset);
+    }
+    else {
+        // write partial non-page data without encryption
+        rv = FILE_FORWARD(this, xWrite, buffer, count, offset);
+        if (count == 4)
+            mPageNo = rv == SQLITE_OK ? csqlite3_get4byte(static_cast<const uint8_t*>(buffer)) : 0u;
+    }
+
+    return rv;
