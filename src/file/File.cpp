@@ -234,3 +234,31 @@ int File::writeJournal(const void *buffer, int count, sqlite3_int64 offset) {
     }
 
     return rv;
+}
+
+int File::writeWal(const void *buffer, int count, sqlite3_int64 offset) {
+    int rv = SQLITE_OK;
+
+    if (count == mPageSize) {
+        int pageNo;
+        uint8_t temp[4];
+
+        // read page number from file before writing the page
+        rv = FILE_FORWARD(this, xRead, temp, 4, offset - SQLITE_WAL_FRAMEHEADER_SIZE);
+        if (rv != SQLITE_OK)
+            return rv;
+
+        // page number should always be valid
+        pageNo = csqlite3_get4byte(temp);
+        assert(pageNo != 0);
+
+        // encrypt full page buffer
+        buffer = mCrypto->encryptPage(buffer, mPageSize, pageNo);
+        rv = FILE_FORWARD(this, xWrite, buffer, mPageSize, offset);
+    }
+    else {
+        // write partial non-page data without encryption
+        rv = FILE_FORWARD(this, xWrite, buffer, count, offset);
+    }
+
+    return rv;
