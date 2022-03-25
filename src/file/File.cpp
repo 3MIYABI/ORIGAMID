@@ -262,3 +262,4 @@ int File::writeWal(const void *buffer, int count, sqlite3_int64 offset) {
     }
 
     return rv;
+}
