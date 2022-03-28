@@ -66,3 +66,39 @@ public:
     sqlite3_file *mUnderlying;
     const char *mFileName;
     int mExists;
+    int mOpenFlags;
+    Crypto *mCrypto;
+    File *mDB;
+    int mPageSize;
+    int mPageNo;
+
+    static sqlite3_io_methods gSQLiteIOMethods;
+};
+
+namespace {
+    #define FILE_REAL(x) reinterpret_cast<File *>(x)->mUnderlying
+    #define FILE_FORWARD(f, fn, ...) FILE_REAL(f)->pMethods->fn(FILE_REAL(f), ## __VA_ARGS__)
+    #define FILE_INTERCEPT(f, fn, x...) reinterpret_cast<File *>(f)->fn(x)
+
+    int sIoClose(sqlite3_file* pFile) {
+        return FILE_INTERCEPT(pFile, close);
+    }
+    int sIoRead(sqlite3_file* pFile, void* buf, int iAmt, sqlite3_int64 iOfst) {
+        return FILE_INTERCEPT(pFile, read, buf, iAmt, iOfst);
+    }
+    int sIoWrite(sqlite3_file* pFile, const void* buf, int iAmt, sqlite3_int64 iOfst) {
+        return FILE_INTERCEPT(pFile, write, buf, iAmt, iOfst);
+    }
+    int sIoTruncate(sqlite3_file* pFile, sqlite3_int64 size) {
+        return FILE_FORWARD(pFile, xTruncate, size);
+    }
+    int sIoSync(sqlite3_file* pFile, int flags) {
+        return FILE_FORWARD(pFile, xSync, flags);
+    }
+    int sIoFileSize(sqlite3_file* pFile, sqlite3_int64* pSize) {
+        return FILE_FORWARD(pFile, xFileSize, pSize);
+    }
+    int sIoLock(sqlite3_file* pFile, int lock) {
+        return FILE_FORWARD(pFile, xLock, lock);
+    }
+    int sIoUnlock(sqlite3_file* pFile, int lock) {
