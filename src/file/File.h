@@ -134,3 +134,10 @@ namespace {
     int sIoUnfetch(sqlite3_file* pFile, sqlite3_int64 iOfst, void* p) {
         return FILE_FORWARD(pFile, xUnfetch, iOfst, p);
     }
+}
+
+/* Assert that these classes can be used as derived structs with aligned first members */
+static_assert(std::is_standard_layout<File>::value, "File: Invalid class layout.");
+static_assert(std::is_trivial<File>::value, "File: Invalid class layout.");
+
+#endif //CRYPTOSQLITE_FILE_H
