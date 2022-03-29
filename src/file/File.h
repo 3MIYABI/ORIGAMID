@@ -102,3 +102,35 @@ namespace {
         return FILE_FORWARD(pFile, xLock, lock);
     }
     int sIoUnlock(sqlite3_file* pFile, int lock) {
+        return FILE_FORWARD(pFile, xUnlock, lock);
+    }
+    int sIoCheckReservedLock(sqlite3_file* pFile, int *pResOut) {
+        return FILE_FORWARD(pFile, xCheckReservedLock, pResOut);
+    }
+    int sIoFileControl(sqlite3_file* pFile, int op, void *pArg) {
+        return FILE_FORWARD(pFile, xFileControl, op, pArg);
+    }
+    int sIoSectorSize(sqlite3_file* pFile) {
+        return FILE_FORWARD(pFile, xSectorSize);
+    }
+    int sIoDeviceCharacteristics(sqlite3_file* pFile) {
+        return FILE_FORWARD(pFile, xDeviceCharacteristics);
+    }
+    int sIoShmMap(sqlite3_file* pFile, int iPg, int pgsz, int map, void volatile** p) {
+        return FILE_FORWARD(pFile, xShmMap, iPg, pgsz, map, p);
+    }
+    int sIoShmLock(sqlite3_file* pFile, int offset, int n, int flags) {
+        return FILE_FORWARD(pFile, xShmLock, offset, n, flags);
+    }
+    void sIoShmBarrier(sqlite3_file* pFile) {
+        return FILE_FORWARD(pFile, xShmBarrier);
+    }
+    int sIoShmUnmap(sqlite3_file* pFile, int deleteFlag) {
+        return FILE_FORWARD(pFile, xShmUnmap, deleteFlag);
+    }
+    int sIoFetch(sqlite3_file* pFile, sqlite3_int64 iOfst, int iAmt, void** pp) {
+        return FILE_FORWARD(pFile, xFetch, iOfst, iAmt, pp);
+    }
+    int sIoUnfetch(sqlite3_file* pFile, sqlite3_int64 iOfst, void* p) {
+        return FILE_FORWARD(pFile, xUnfetch, iOfst, p);
+    }
