@@ -18,3 +18,6 @@
  */
 
 #include <algorithm>
+#include "VFS.h"
+
+VFS VFS
