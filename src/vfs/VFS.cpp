@@ -22,4 +22,4 @@
 
 VFS VFS::sInstance;
 
-VFS::VFS() : mBa
+VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
