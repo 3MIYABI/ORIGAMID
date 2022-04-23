@@ -20,4 +20,6 @@
 #include <algorithm>
 #include "VFS.h"
 
-VFS VFS
+VFS VFS::sInstance;
+
+VFS::VFS() : mBa
