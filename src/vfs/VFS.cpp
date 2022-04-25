@@ -24,4 +24,4 @@ VFS VFS::sInstance;
 
 VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
     // find default VFS
-   
+    mUnderlying = sqlite3_vfs_fin
