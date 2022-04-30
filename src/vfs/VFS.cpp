@@ -26,4 +26,4 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
     // find default VFS
     mUnderlying = sqlite3_vfs_find(nullptr);
 
-    // set base
+    // set base parameters based on underlying V
