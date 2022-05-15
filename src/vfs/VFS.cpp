@@ -28,4 +28,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
 
     // set base parameters based on underlying VFS
     mBase = {
-            
+            3,                      /* iVersion */
+  
