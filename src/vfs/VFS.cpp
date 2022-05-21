@@ -31,4 +31,4 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             3,                      /* iVersion */
             static_cast<int>(sizeof(File) + mUnderlying->szOsFile),                      /* szOsFile */
             mUnderlying->mxPathname,                   /* mxPathname */
-  
+            nullptr,                /* pN
