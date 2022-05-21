@@ -29,4 +29,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
     // set base parameters based on underlying VFS
     mBase = {
             3,                      /* iVersion */
-            static_cast<int>(sizeof(File) + mUnderlying->szOsFile),   
+            static_cast<int>(sizeof(File) + mUnderlying->szOsFile),                      /* szOsFile */
+  
