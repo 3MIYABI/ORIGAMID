@@ -33,4 +33,4 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             mUnderlying->mxPathname,                   /* mxPathname */
             nullptr,                /* pNext */
             "CryptoSQLite",         /* zName */
-     
+            nullptr,             
