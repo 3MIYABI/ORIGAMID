@@ -32,4 +32,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             static_cast<int>(sizeof(File) + mUnderlying->szOsFile),                      /* szOsFile */
             mUnderlying->mxPathname,                   /* mxPathname */
             nullptr,                /* pNext */
-            "CryptoSQLite", 
+            "CryptoSQLite",         /* zName */
+     
