@@ -36,4 +36,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             nullptr,                /* pAppData */
             sVfsOpen,               /* xOpen */
             sVfsDelete,             /* xDelete */
-            sVfsAccess,             /* x
+            sVfsAccess,             /* xAccess */
+            sV
