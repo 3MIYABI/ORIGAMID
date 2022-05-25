@@ -35,4 +35,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             "CryptoSQLite",         /* zName */
             nullptr,                /* pAppData */
             sVfsOpen,               /* xOpen */
-            sVfsDelete,    
+            sVfsDelete,             /* xDelete */
+    
