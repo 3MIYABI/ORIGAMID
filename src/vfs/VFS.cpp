@@ -37,4 +37,4 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             sVfsOpen,               /* xOpen */
             sVfsDelete,             /* xDelete */
             sVfsAccess,             /* xAccess */
-            sV
+            sVfsFullPathname,       /* xFullPat
