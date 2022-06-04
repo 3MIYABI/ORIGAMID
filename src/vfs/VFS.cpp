@@ -39,4 +39,4 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             sVfsAccess,             /* xAccess */
             sVfsFullPathname,       /* xFullPathname */
             sVfsDlOpen,             /* xDlOpen */
-     
+            sVfsDlError,          
