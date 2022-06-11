@@ -42,4 +42,4 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             sVfsDlError,            /* xDlError */
             sVfsDlSym,              /* xDlSym */
             sVfsDlClose,            /* xDlClose */
-      
+            sVfsRandomness,         /* xRandomness 
