@@ -43,4 +43,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             sVfsDlSym,              /* xDlSym */
             sVfsDlClose,            /* xDlClose */
             sVfsRandomness,         /* xRandomness */
-            sVfsSleep,             
+            sVfsSleep,              /* xSleep */
+            sVfs
