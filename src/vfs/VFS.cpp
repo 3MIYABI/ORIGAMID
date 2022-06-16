@@ -45,4 +45,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             sVfsRandomness,         /* xRandomness */
             sVfsSleep,              /* xSleep */
             sVfsCurrentTime,        /* xCurrentTime */
-            sVfsGetLastError,      
+            sVfsGetLastError,       /* xGetLastError */
+   
