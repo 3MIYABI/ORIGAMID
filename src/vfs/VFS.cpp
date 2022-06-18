@@ -47,4 +47,5 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             sVfsCurrentTime,        /* xCurrentTime */
             sVfsGetLastError,       /* xGetLastError */
             sVfsCurrentTimeInt64,   /* xCurrentTimeInt64 */
-            sVfsSetSystemCall,      /*
+            sVfsSetSystemCall,      /* xSetSystemCall */
+            sVfsGetSystem
