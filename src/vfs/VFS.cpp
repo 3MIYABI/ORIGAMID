@@ -51,3 +51,7 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
             sVfsGetSystemCall,      /* xGetSystemCall */
             sVfsNextSystemCall      /* xNextSystemCall */
     };
+}
+
+VFS::~VFS() {
+    delete mDBs;
