@@ -55,3 +55,6 @@ VFS::VFS() : mBase(), mDBs(new std::vector<File *>()) {
 
 VFS::~VFS() {
     delete mDBs;
+}
+
+void VFS::prepare(const void *zKey, i
