@@ -57,4 +57,5 @@ VFS::~VFS() {
     delete mDBs;
 }
 
-void VFS::prepare(const void *zKey, i
+void VFS::prepare(const void *zKey, int nKey) {
+    // make
