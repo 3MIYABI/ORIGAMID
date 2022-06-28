@@ -58,4 +58,5 @@ VFS::~VFS() {
 }
 
 void VFS::prepare(const void *zKey, int nKey) {
-    // make
+    // make custom VFS default before opening
+    sq
