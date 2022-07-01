@@ -59,4 +59,4 @@ VFS::~VFS() {
 
 void VFS::prepare(const void *zKey, int nKey) {
     // make custom VFS default before opening
-    sq
+    sqlite3_vfs_register(base(
