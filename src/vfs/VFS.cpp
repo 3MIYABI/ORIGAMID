@@ -60,4 +60,6 @@ VFS::~VFS() {
 void VFS::prepare(const void *zKey, int nKey) {
     // make custom VFS default before opening
     sqlite3_vfs_register(base(), 1);
-    // cache key in instance
+    // cache key in instance for open()
+    mFileKey = zKey;
+   
