@@ -65,4 +65,4 @@ void VFS::prepare(const void *zKey, int nKey) {
     mFileKeySize = nKey;
 }
 
-int VFS::open(c
+int VFS::open(const char *zName, sqlite3_file *
