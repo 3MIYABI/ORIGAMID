@@ -62,4 +62,7 @@ void VFS::prepare(const void *zKey, int nKey) {
     sqlite3_vfs_register(base(), 1);
     // cache key in instance for open()
     mFileKey = zKey;
-   
+    mFileKeySize = nKey;
+}
+
+int VFS::open(c
