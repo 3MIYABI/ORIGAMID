@@ -66,4 +66,6 @@ void VFS::prepare(const void *zKey, int nKey) {
 }
 
 int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags) {
-    auto *db = reinterpret_cast<Fi
+    auto *db = reinterpret_cast<File *>(pFile);
+
+    db->mUnderlyin
