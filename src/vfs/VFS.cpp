@@ -71,4 +71,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
     db->mUnderlying = reinterpret_cast<sqlite3_file *>(&db[1]);
     db->mFileName = zName;
     db->mExists = 0;
-    d
+    db->mOpenFlags = flags;
+    db->mCr
