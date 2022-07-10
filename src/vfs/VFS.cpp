@@ -72,4 +72,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
     db->mFileName = zName;
     db->mExists = 0;
     db->mOpenFlags = flags;
-    db->mCr
+    db->mCrypto = nullptr;
+    db->mDB = null
