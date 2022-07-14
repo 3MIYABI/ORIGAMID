@@ -76,4 +76,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
     db->mDB = nullptr;
     db->mPageNo = 0;
 
-    if (zName
+    if (zName) {
+        switch (flags 
