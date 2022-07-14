@@ -78,4 +78,4 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
 
     if (zName) {
         switch (flags & SQLITE_OPEN_MASK) {
-           
+            /** Contains only administra
