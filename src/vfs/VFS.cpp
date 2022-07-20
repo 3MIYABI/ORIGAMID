@@ -80,4 +80,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
         switch (flags & SQLITE_OPEN_MASK) {
             /** Contains only administrative information, no encryption necessary. **/
             case SQLITE_OPEN_MASTER_JOURNAL:
-            case SQLITE_OPEN_TEMP_
+            case SQLITE_OPEN_TEMP_DB:
+                break;
