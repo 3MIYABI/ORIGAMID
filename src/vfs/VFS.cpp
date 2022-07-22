@@ -84,4 +84,4 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
                 break;
 
             case SQLITE_OPEN_MAIN_DB:
-                VFS_FORWARD(
+                VFS_FORWARD(this, xAccess, zName, SQLITE_AC
