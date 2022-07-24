@@ -85,4 +85,4 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
 
             case SQLITE_OPEN_MAIN_DB:
                 VFS_FORWARD(this, xAccess, zName, SQLITE_ACCESS_EXISTS, &db->mExists);
-                db->mCrypto = new Cryp
+                db->mCrypto = new Crypto(db->mFileName, mFileKey, m
