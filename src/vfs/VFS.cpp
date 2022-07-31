@@ -88,4 +88,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
                 db->mCrypto = new Crypto(db->mFileName, mFileKey, mFileKeySize, db->mExists);
                 break;
 
-            case SQLITE_
+            case SQLITE_OPEN_MAIN_JOURNAL:
+            c
