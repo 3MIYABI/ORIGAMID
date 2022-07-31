@@ -89,4 +89,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
                 break;
 
             case SQLITE_OPEN_MAIN_JOURNAL:
-            c
+            case SQLITE_OPEN_SUBJOURNAL:
+   
