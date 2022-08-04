@@ -91,4 +91,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
             case SQLITE_OPEN_MAIN_JOURNAL:
             case SQLITE_OPEN_SUBJOURNAL:
             case SQLITE_OPEN_WAL:
-                db->mDB = fi
+                db->mDB = findMainDatabase(zName);
+    
