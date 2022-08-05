@@ -93,3 +93,6 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
             case SQLITE_OPEN_WAL:
                 db->mDB = findMainDatabase(zName);
                 db->mCrypto = db->mDB->mCrypto;
+                break;
+
+    
