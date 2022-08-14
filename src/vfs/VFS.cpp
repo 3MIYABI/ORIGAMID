@@ -95,4 +95,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
                 db->mCrypto = db->mDB->mCrypto;
                 break;
 
-            case SQLITE_OPEN_TRANSIENT_DB
+            case SQLITE_OPEN_TRANSIENT_DB:
+            case SQLITE_OPE
