@@ -96,4 +96,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
                 break;
 
             case SQLITE_OPEN_TRANSIENT_DB:
-            case SQLITE_OPE
+            case SQLITE_OPEN_TEMP_JOURNAL:
+                // TOD
