@@ -100,4 +100,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
                 // TODO ?
                 break;
 
-    
+            default:
+              
