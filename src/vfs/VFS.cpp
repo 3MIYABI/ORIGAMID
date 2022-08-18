@@ -101,4 +101,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
                 break;
 
             default:
-              
+                return SQLITE_ERROR;
+   
