@@ -109,4 +109,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
     if (ret == SQLITE_OK) {
         pFile->pMethods = &File::gSQLiteIOMethods;
 
-        if (flags & SQLITE_OPEN_M
+        if (flags & SQLITE_OPEN_MAIN_DB)
+            addDatab
