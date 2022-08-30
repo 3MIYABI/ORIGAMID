@@ -116,4 +116,6 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
 }
 
 void VFS::finish() {
-    mFil
+    mFileKey = nullptr;
+    mFileKeySize = 0;
+ 
