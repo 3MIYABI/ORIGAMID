@@ -113,3 +113,7 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
             addDatabase(db);
     }
     return ret;
+}
+
+void VFS::finish() {
+    mFil
