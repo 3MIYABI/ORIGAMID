@@ -118,4 +118,5 @@ int VFS::open(const char *zName, sqlite3_file *pFile, int flags, int *pOutFlags)
 void VFS::finish() {
     mFileKey = nullptr;
     mFileKeySize = 0;
-    // unregister custom VFS after 
+    // unregister custom VFS after opening
+    sqlite3_vfs_unregi
