@@ -119,4 +119,4 @@ void VFS::finish() {
     mFileKey = nullptr;
     mFileKeySize = 0;
     // unregister custom VFS after opening
-    sqlite3_vfs_unregi
+    sqlite3_vfs_unregister(VFS::instance()->base());
