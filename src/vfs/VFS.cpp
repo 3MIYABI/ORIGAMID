@@ -120,3 +120,6 @@ void VFS::finish() {
     mFileKeySize = 0;
     // unregister custom VFS after opening
     sqlite3_vfs_unregister(VFS::instance()->base());
+}
+
+File *VFS::findMainDatab
