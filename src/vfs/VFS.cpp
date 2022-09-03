@@ -123,4 +123,4 @@ void VFS::finish() {
 }
 
 File *VFS::findMainDatabase(const char *name) {
-    
+    auto *dbFileName = sqlite3_file
