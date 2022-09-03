@@ -122,4 +122,5 @@ void VFS::finish() {
     sqlite3_vfs_unregister(VFS::instance()->base());
 }
 
-File *VFS::findMainDatab
+File *VFS::findMainDatabase(const char *name) {
+    
