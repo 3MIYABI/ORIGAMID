@@ -126,4 +126,4 @@ File *VFS::findMainDatabase(const char *name) {
     auto *dbFileName = sqlite3_filename_database(name);
 
     SQLite3LockGuard lock(mMutex);
-   
+    auto it = std::find_if(mDBs->begin(
