@@ -130,4 +130,4 @@ File *VFS::findMainDatabase(const char *name) {
         return db->mFileName == dbFileName;
     });
 
-    retur
+    return (it != mDBs->end()) ? *it 
