@@ -133,4 +133,5 @@ File *VFS::findMainDatabase(const char *name) {
     return (it != mDBs->end()) ? *it : nullptr;
 }
 
-void VFS::add
+void VFS::addDatabase(File *db) {
+    SQLite3L
