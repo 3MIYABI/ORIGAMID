@@ -138,4 +138,5 @@ void VFS::addDatabase(File *db) {
     mDBs->push_back(db);
 }
 
-void VFS::removeDatab
+void VFS::removeDatabase(File *db) {
+    SQLite3LockGuard 
