@@ -134,4 +134,5 @@ File *VFS::findMainDatabase(const char *name) {
 }
 
 void VFS::addDatabase(File *db) {
-    SQLite3L
+    SQLite3LockGuard lock(mMutex);
+    mDBs->push_
