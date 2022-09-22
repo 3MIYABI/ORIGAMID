@@ -139,4 +139,5 @@ void VFS::addDatabase(File *db) {
 }
 
 void VFS::removeDatabase(File *db) {
-    SQLite3LockGuard 
+    SQLite3LockGuard lock(mMutex);
+    mDBs->erase(std::re
