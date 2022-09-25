@@ -20,3 +20,34 @@
 
 #ifndef CRYPTOSQLITE_VFS_H
 #define CRYPTOSQLITE_VFS_H
+
+#include "../file/File.h"
+#include "../csqlite/SQLite3Mutex.h"
+
+class VFS {
+public:
+    static VFS *instance() {
+        return &sInstance;
+    }
+
+    /**
+     * Call before opening main db to prepare reading the encrypted file header
+     * Sets this VFS as default. Only one db can be prepared at a time
+     *
+     * @param zKey Optional key pointer
+     * @param nKey Optional key size
+     */
+    void prepare(const void *zKey, int nKey);
+
+    /**
+     * Automatically called on opening any file (db, journal, wal, ...)
+     *
+     * @param zName Optional file name
+     * @param pFile Pointer to preallocated file structure(s)
+     * @param flags Opening flags
+     * @param pOutFlags Return flags
+     * @return Standard sqlite error code
+     */
+    int open(const char* zName, sqlite3_file* pFile, int flags, int* pOutFlags);
+
+    /**
