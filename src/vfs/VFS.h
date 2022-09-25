@@ -51,3 +51,32 @@ public:
     int open(const char* zName, sqlite3_file* pFile, int flags, int* pOutFlags);
 
     /**
+     * Call after opening the main db to finish setup and clean up resources
+     * Removes this VFS as default.
+     *
+     * @param db Database pointer that was just opened
+     * @param nDb Database number for attached databases
+     */
+    void finish();
+
+    sqlite3_vfs *base() {
+        return &mBase;
+    }
+    sqlite3_vfs *underlying() {
+        return mUnderlying;
+    }
+
+    File *findMainDatabase(const char *name);
+    void removeDatabase(File *db);
+
+protected:
+    VFS();
+    ~VFS();
+    void addDatabase(File *db);
+
+    sqlite3_vfs mBase;
+    /**/
+    sqlite3_vfs *mUnderlying;
+    SQLite3Mutex mMutex;
+    std::vector<File *> *mDBs;
+    const void *mFileKey;
