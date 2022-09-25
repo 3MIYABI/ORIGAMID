@@ -80,3 +80,30 @@ protected:
     SQLite3Mutex mMutex;
     std::vector<File *> *mDBs;
     const void *mFileKey;
+    int mFileKeySize;
+
+    static VFS sInstance;
+};
+
+namespace {
+    #define VFS_REAL(x) reinterpret_cast<VFS *>(x)->underlying()
+    #define VFS_FORWARD(f, fn, x...) VFS_REAL(f)->fn(VFS_REAL(f), x)
+    #define VFS_INTERCEPT(f, fn, x...) reinterpret_cast<VFS *>(f)->fn(x)
+
+    int sVfsOpen(sqlite3_vfs* pVfs, const char* zName, sqlite3_file* pFile, int flags, int* pOutFlags) {
+        return VFS_INTERCEPT(pVfs, open, zName, pFile, flags, pOutFlags);
+    }
+    int sVfsDelete(sqlite3_vfs* pVfs, const char* zName, int syncDir) {
+        return VFS_FORWARD(pVfs, xDelete, zName, syncDir);
+    }
+    int sVfsAccess(sqlite3_vfs* pVfs, const char* zName, int flags, int* pResOut) {
+        return VFS_FORWARD(pVfs, xAccess, zName, flags, pResOut);
+    }
+    int sVfsFullPathname(sqlite3_vfs* pVfs, const char* zName, int nOut, char* zOut) {
+        return VFS_FORWARD(pVfs, xFullPathname, zName, nOut, zOut);
+    }
+    void* sVfsDlOpen(sqlite3_vfs* pVfs, const char* zFilename) {
+        return VFS_FORWARD(pVfs, xDlOpen, zFilename);
+    }
+    void sVfsDlError(sqlite3_vfs* pVfs, int nByte, char* zErrMsg) {
+        return VFS_FORWARD(pVfs, xDlError, nByte, zErrMsg);
