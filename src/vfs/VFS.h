@@ -138,3 +138,9 @@ namespace {
     const char* sVfsNextSystemCall(sqlite3_vfs* pVfs, const char* zName) {
         return VFS_FORWARD(pVfs, xNextSystemCall, zName);
     }
+}
+
+/* Assert that these classes can be used as derived structs with aligned first members */
+static_assert(std::is_standard_layout<VFS>::value, "VFS: Invalid class layout.");
+
+#endif //CRYPTOSQLITE_VFS_H
