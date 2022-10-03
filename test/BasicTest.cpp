@@ -26,3 +26,33 @@
 
 #define ASSERT_OK(x) ASSERT_EQ(SQLITE_OK, (x))
 #define ASSERT_DONE(x) ASSERT_EQ(SQLITE_DONE, (x))
+
+TEST_F(BasicTest, testNoPW) {
+    testReadWrite(nullptr, 0);
+}
+
+TEST_F(BasicTest, testNoPWTransact) {
+    testReadWrite(nullptr, 0, true);
+}
+
+TEST_F(BasicTest, testPlaintext) {
+    crypto_sqlite::setCryptoFactory([] (std::unique_ptr<IDataCrypt> &crypt) {
+        crypt.reset(new PlaintextCrypt());
+    });
+
+    const char *key = "1234";
+    int keylen = 4;
+
+    testReadWrite(key, keylen);
+}
+
+TEST_F(BasicTest, testPlaintextTransact) {
+    crypto_sqlite::setCryptoFactory([] (std::unique_ptr<IDataCrypt> &crypt) {
+        crypt.reset(new PlaintextCrypt());
+    });
+
+    const char *key = "1234";
+    int keylen = 4;
+
+    testReadWrite(key, keylen, true);
+}
