@@ -56,3 +56,35 @@ TEST_F(BasicTest, testPlaintextTransact) {
 
     testReadWrite(key, keylen, true);
 }
+
+TEST_F(BasicTest, testPlaintextTransactRekey) {
+    crypto_sqlite::setCryptoFactory([] (std::unique_ptr<IDataCrypt> &crypt) {
+        crypt.reset(new PlaintextCrypt());
+    });
+
+    const char *key = "1234", *newkey = "32818";
+    int keylen = 4, newlen = 5;
+
+    testWrite(key, keylen, true);
+    testRekey(key, keylen, newkey, newlen);
+    testRead(newkey, newlen);
+}
+
+TEST_F(BasicTest, testTestCrypt) {
+    crypto_sqlite::setCryptoFactory([] (std::unique_ptr<IDataCrypt> &crypt) {
+        crypt.reset(new TestCrypt());
+    });
+
+    const char *key = "42424242";
+    int keylen = strlen(key);
+
+    testReadWrite(key, keylen);
+}
+
+TEST_F(BasicTest, testTestCryptTransact) {
+    crypto_sqlite::setCryptoFactory([] (std::unique_ptr<IDataCrypt> &crypt) {
+        crypt.reset(new TestCrypt());
+    });
+
+    const char *key = "42424242";
+    int keylen = strlen(key);
