@@ -88,3 +88,31 @@ TEST_F(BasicTest, testTestCryptTransact) {
 
     const char *key = "42424242";
     int keylen = strlen(key);
+
+    testReadWrite(key, keylen, true);
+}
+
+TEST_F(BasicTest, testTestCryptTransactRekey) {
+    crypto_sqlite::setCryptoFactory([] (std::unique_ptr<IDataCrypt> &crypt) {
+        crypt.reset(new TestCrypt());
+    });
+
+    const char *key = "42424242", *newkey = "8921897129818";
+    int keylen = strlen(key), newlen = strlen(newkey);
+
+    testWrite(key, keylen, true);
+    testRekey(key, keylen, newkey, newlen);
+    testRead(newkey, newlen);
+}
+
+void BasicTest::testWrite(const char *key, int keylen, bool transact, int insertCount) {
+    // test params
+    const char* dbName = "test.db";
+
+    const char * CREATE_TABLE_TEST = "create table 'test' (id INTEGER PRIMARY KEY, name TEXT);";
+    const char * INSERT_PREPARE = "insert into 'test' VALUES (?, ?);";
+    const char * BEGIN_TRANSACT = "BEGIN TRANSACTION;";
+    const char * END_TRANSACT = "END TRANSACTION;";
+
+    // test variables
+    sqlite3 *db;
