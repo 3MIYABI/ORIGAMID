@@ -116,3 +116,38 @@ void BasicTest::testWrite(const char *key, int keylen, bool transact, int insert
 
     // test variables
     sqlite3 *db;
+    sqlite3_stmt *prep_st;
+    char* error = nullptr;
+
+    ASSERT_OK(sqlite3_open_encrypted(dbName, &db, key, keylen));
+
+    // start transaction
+    if (transact)
+        ASSERT_OK(sqlite3_exec(db, BEGIN_TRANSACT, nullptr, nullptr, &error));
+
+    // create DB
+    ASSERT_OK(sqlite3_exec(db, CREATE_TABLE_TEST, nullptr, nullptr, &error));
+
+    // prepare statement
+    ASSERT_OK(sqlite3_prepare_v2(db, INSERT_PREPARE, -1, &prep_st, nullptr));
+
+    for (int i = 0; i < insertCount; i++) {
+        std::string teststr = "hanswurst" + std::to_string(i);
+
+        // bind it
+        ASSERT_OK(sqlite3_bind_int(prep_st, 1, i));
+        ASSERT_OK(sqlite3_bind_text(prep_st, 2, teststr.c_str(), teststr.size(), nullptr));
+
+        // run it
+        ASSERT_DONE(sqlite3_step(prep_st));
+
+        // reset it
+        ASSERT_OK(sqlite3_reset(prep_st));
+    }
+
+    // commit transaction
+    if (transact)
+        ASSERT_OK(sqlite3_exec(db, END_TRANSACT, nullptr, nullptr, &error));
+
+    // close DB before selecting to test decryption and force load from disk
+    ASSERT_OK(sqlite3_finalize(prep_st));
