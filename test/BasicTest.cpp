@@ -151,3 +151,35 @@ void BasicTest::testWrite(const char *key, int keylen, bool transact, int insert
 
     // close DB before selecting to test decryption and force load from disk
     ASSERT_OK(sqlite3_finalize(prep_st));
+    ASSERT_OK(sqlite3_close(db));
+}
+
+void BasicTest::testRead(const char *key, int keylen, int insertCount) {
+    // test params
+    const char* dbName = "test.db";
+
+    const char * SELECT = "select * FROM 'test';";
+
+    // test variables
+    sqlite3 *db;
+    char* error = nullptr;
+
+    // open DB
+    ASSERT_OK(sqlite3_open_encrypted(dbName, &db, key, keylen));
+
+    int count = 0;
+
+    ASSERT_OK(sqlite3_exec(db, SELECT, [] (void *data, int argc, char **argv, char **azColName) -> int {
+        std::string id(argv[0]);
+        std::string name(argv[1]);
+
+        EXPECT_EQ("hanswurst" + id, name);
+
+        int * counter = (int*)data;
+        (*counter)++;
+
+        return 0;
+    }, &count, &error));
+
+
+    ASSERT_EQ(insertCount, count);
