@@ -183,3 +183,13 @@ void BasicTest::testRead(const char *key, int keylen, int insertCount) {
 
 
     ASSERT_EQ(insertCount, count);
+    ASSERT_OK(sqlite3_close(db));
+}
+
+void BasicTest::testRekey(const char *oldkey, int oldkeylen, const char *newkey, int newkeylen) {
+    // test params
+    const char* dbName = "test.db";
+
+    // open DB
+    ASSERT_OK(sqlite3_rekey_encrypted(dbName, oldkey, oldkeylen, newkey, newkeylen));
+}
