@@ -12,3 +12,26 @@
  * CryptoSQLite is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef CRYPTOSQLITE_BASICTEST_H
+#define CRYPTOSQLITE_BASICTEST_H
+
+#include <gtest/gtest.h>
+#include <sqlite3.h>
+#include <crypto_sqlite/crypto/PlaintextCrypt.h>
+#include "TestCrypt.h"
+
+class BasicTest : public ::testing::Test {
+protected:
+    virtual void SetUp() override {
+        std::remove("test.db");
+        std::remove("test.db-keyfile");
+    }
+
+    void testReadWrite(const char *key, int keylen, bool transact = false, int insertCount = 1000) {
+        testWrite(key, keylen, transact, insertCount);
