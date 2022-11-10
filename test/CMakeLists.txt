@@ -20,3 +20,4 @@ include(FindOrBuildGTest)
 
 if (GTEST_FOUND)
     # find test files
+    file(GLOB_RECURSE TEST_SOU
