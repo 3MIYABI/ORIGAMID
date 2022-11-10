@@ -18,4 +18,5 @@
 
 include(FindOrBuildGTest)
 
-if (GTEST_FO
+if (GTEST_FOUND)
+    # find test files
