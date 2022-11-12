@@ -21,3 +21,4 @@ include(FindOrBuildGTest)
 if (GTEST_FOUND)
     # find test files
     file(GLOB_RECURSE TEST_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+    file(GLOB_RECURSE TEST_INCLUDE ${CMAK
