@@ -24,4 +24,6 @@ if (GTEST_FOUND)
     file(GLOB_RECURSE TEST_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
 
     # include gtest
-    include_directories(${
+    include_directories(${GTEST_INCLUDE_DIRS})
+
+    # ba
