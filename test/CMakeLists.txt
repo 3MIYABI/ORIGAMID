@@ -26,4 +26,5 @@ if (GTEST_FOUND)
     # include gtest
     include_directories(${GTEST_INCLUDE_DIRS})
 
-    # ba
+    # basic test executable
+    add_ex
