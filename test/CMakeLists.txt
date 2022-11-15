@@ -27,4 +27,6 @@ if (GTEST_FOUND)
     include_directories(${GTEST_INCLUDE_DIRS})
 
     # basic test executable
-    add_executable(crypto_sqlite_test ${TEST_SO
+    add_executable(crypto_sqlite_test ${TEST_SOURCE} ${TEST_INCLUDE})
+
+    # 
