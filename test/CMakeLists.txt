@@ -29,4 +29,5 @@ if (GTEST_FOUND)
     # basic test executable
     add_executable(crypto_sqlite_test ${TEST_SOURCE} ${TEST_INCLUDE})
 
-    # 
+    # require and enable c++14 support
+    set_targe
