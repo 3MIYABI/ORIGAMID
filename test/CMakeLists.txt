@@ -30,4 +30,6 @@ if (GTEST_FOUND)
     add_executable(crypto_sqlite_test ${TEST_SOURCE} ${TEST_INCLUDE})
 
     # require and enable c++14 support
-    set_target_properties(crypto_sqlite_test PROPERTIES CXX_STANDARD 14 
+    set_target_properties(crypto_sqlite_test PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED YES)
+
+   
