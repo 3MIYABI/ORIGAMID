@@ -32,4 +32,5 @@ if (GTEST_FOUND)
     # require and enable c++14 support
     set_target_properties(crypto_sqlite_test PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED YES)
 
-   
+    # add dependencies
+    target_link_libra
