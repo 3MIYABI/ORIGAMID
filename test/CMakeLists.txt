@@ -33,4 +33,4 @@ if (GTEST_FOUND)
     set_target_properties(crypto_sqlite_test PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED YES)
 
     # add dependencies
-    target_link_libra
+    target_link_libraries(crypto_sqlite_test ${GTES
