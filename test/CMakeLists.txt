@@ -35,4 +35,6 @@ if (GTEST_FOUND)
     # add dependencies
     target_link_libraries(crypto_sqlite_test ${GTEST_BOTH_LIBRARIES} crypto_sqlite)
     if (NOT ANDROID)
-        target_link_libraries(crypto_sql
+        target_link_libraries(crypto_sqlite_test pthread)
+    endif()
+en
