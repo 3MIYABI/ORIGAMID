@@ -33,4 +33,6 @@ if (GTEST_FOUND)
     set_target_properties(crypto_sqlite_test PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED YES)
 
     # add dependencies
-    target_link_libraries(crypto_sqlite_test ${GTEST_BOTH_LIBRARIES} crypto_sqlite
+    target_link_libraries(crypto_sqlite_test ${GTEST_BOTH_LIBRARIES} crypto_sqlite)
+    if (NOT ANDROID)
+       
