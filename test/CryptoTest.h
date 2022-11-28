@@ -13,3 +13,19 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with CryptoSQLite.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef CRYPTOSQLITE_CRYPTOTEST_H
+#define CRYPTOSQLITE_CRYPTOTEST_H
+
+#include <gtest/gtest.h>
+
+class CryptoTest : public ::testing::Test {
+
+};
+
+
+#endif //CRYPTOSQLITE_CRYPTOTEST_H
