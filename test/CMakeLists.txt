@@ -37,4 +37,4 @@ if (GTEST_FOUND)
     if (NOT ANDROID)
         target_link_libraries(crypto_sqlite_test pthread)
     endif()
-en
+endif()
