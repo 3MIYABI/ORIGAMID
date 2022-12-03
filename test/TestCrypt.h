@@ -3,4 +3,4 @@
  *
  * This file is part of CryptoSQLite.
  *
- * Cryp
+ * CryptoSQLite is free software:
