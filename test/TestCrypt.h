@@ -3,4 +3,4 @@
  *
  * This file is part of CryptoSQLite.
  *
- * CryptoSQLite is free software:
+ * CryptoSQLite is free software: you can redistribute it and/or modify
