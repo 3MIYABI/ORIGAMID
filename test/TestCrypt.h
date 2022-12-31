@@ -18,4 +18,6 @@
  */
 
 #ifndef CRYPTOSQLITE_TESTCRYPT_H
-#def
+#define CRYPTOSQLITE_TESTCRYPT_H
+
+#include <c
