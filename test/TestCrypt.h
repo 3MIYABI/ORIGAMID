@@ -20,4 +20,6 @@
 #ifndef CRYPTOSQLITE_TESTCRYPT_H
 #define CRYPTOSQLITE_TESTCRYPT_H
 
-#include <c
+#include <crypto_sqlite/crypto/IDataCrypt.h>
+
+class
