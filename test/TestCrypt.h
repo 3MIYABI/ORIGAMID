@@ -23,4 +23,5 @@
 #include <crypto_sqlite/crypto/IDataCrypt.h>
 
 class TestCrypt : public IDataCrypt {
-publ
+public:
+    void encrypt(uint32_
