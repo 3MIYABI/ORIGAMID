@@ -24,4 +24,5 @@
 
 class TestCrypt : public IDataCrypt {
 public:
-    void encrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &k
+    void encrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const override {
+        // cop
