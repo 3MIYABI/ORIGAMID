@@ -29,4 +29,5 @@ public:
         destination.write(source, 0);
 
         // xor destination with key
-     
+        xorBuffer(destination, key);
+ 
