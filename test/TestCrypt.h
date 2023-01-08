@@ -28,4 +28,5 @@ public:
         // copy source to destination
         destination.write(source, 0);
 
-   
+        // xor destination with key
+     
