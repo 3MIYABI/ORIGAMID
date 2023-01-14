@@ -32,4 +32,4 @@ public:
         xorBuffer(destination, key);
     }
 
-    void decrypt(uint32_t p
+    void decrypt(uint32_t page, const Buffer &source, Buffer &dest
