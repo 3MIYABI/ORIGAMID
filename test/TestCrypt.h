@@ -32,4 +32,5 @@ public:
         xorBuffer(destination, key);
     }
 
-    void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &ke
+    void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const override {
+        //
