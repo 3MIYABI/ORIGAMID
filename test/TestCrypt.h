@@ -30,4 +30,6 @@ public:
 
         // xor destination with key
         xorBuffer(destination, key);
- 
+    }
+
+    void decrypt(uint32_t p
