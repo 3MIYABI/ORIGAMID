@@ -37,4 +37,4 @@ public:
         encrypt(page, source, destination, key);
     }
 
-    v
+    void generateKey(Buffer &destination
