@@ -38,4 +38,5 @@ public:
     }
 
     void generateKey(Buffer &destination) const override {
-        String
+        String testKey("sometestkey1234");
+        
