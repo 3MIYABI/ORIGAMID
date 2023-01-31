@@ -34,4 +34,7 @@ public:
 
     void decrypt(uint32_t page, const Buffer &source, Buffer &destination, const Buffer &key) const override {
         // since XOR operation is the same, just encrypt again to decrypt
-        encrypt(page, source, desti
+        encrypt(page, source, destination, key);
+    }
+
+    v
