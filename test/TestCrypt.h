@@ -37,4 +37,5 @@ public:
         encrypt(page, source, destination, key);
     }
 
-    void generateKey(Buffer &destination
+    void generateKey(Buffer &destination) const override {
+        String
