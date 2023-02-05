@@ -39,4 +39,5 @@ public:
 
     void generateKey(Buffer &destination) const override {
         String testKey("sometestkey1234");
-        
+        destination.write(testKey, 0);
+    }
