@@ -41,3 +41,5 @@ public:
         String testKey("sometestkey1234");
         destination.write(testKey, 0);
     }
+
+    void wrapKey(Buffer &wrappedKey, co
