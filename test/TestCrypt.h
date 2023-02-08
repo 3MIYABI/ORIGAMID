@@ -42,4 +42,5 @@ public:
         destination.write(testKey, 0);
     }
 
-    void wrapKey(Buffer &wrappedKey, const Buffer &key, const Buffer &w
+    void wrapKey(Buffer &wrappedKey, const Buffer &key, const Buffer &wrappingKey) const override {
+   
