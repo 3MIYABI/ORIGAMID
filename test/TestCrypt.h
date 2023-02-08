@@ -44,4 +44,4 @@ public:
 
     void wrapKey(Buffer &wrappedKey, const Buffer &key, const Buffer &wrappingKey) const override {
         wrappedKey.append(key);
-       
+        xorBuffer(wrappedKey, wrappingKe
