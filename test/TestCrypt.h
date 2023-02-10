@@ -47,4 +47,4 @@ public:
         xorBuffer(wrappedKey, wrappingKey);
     }
 
-    void unwrapKey(Buffe
+    void unwrapKey(Buffer &key, const Buffer &wrappedKey, con
