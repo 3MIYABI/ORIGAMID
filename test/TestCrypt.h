@@ -47,4 +47,5 @@ public:
         xorBuffer(wrappedKey, wrappingKey);
     }
 
-    void unwrapKey(Buffer &key, const Buffer &wrappedKey, const Buffer &wrappingKey) cons
+    void unwrapKey(Buffer &key, const Buffer &wrappedKey, const Buffer &wrappingKey) const override {
+        key.append(wr
