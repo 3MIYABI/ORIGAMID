@@ -52,4 +52,4 @@ public:
         xorBuffer(key, wrappingKey);
     }
 
-    uint32_t ex
+    uint32_t extraSize() const override { return 16; }
