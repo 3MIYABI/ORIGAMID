@@ -55,4 +55,4 @@ public:
     uint32_t extraSize() const override { return 16; }
 
 protected:
-    static vo
+    static void xorBuffer(BufferRange sou
