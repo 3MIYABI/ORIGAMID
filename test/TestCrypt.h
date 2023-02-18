@@ -56,4 +56,4 @@ public:
 
 protected:
     static void xorBuffer(BufferRange sourceDest, const Buffer &key) {
-        for (uint32_t i = 0; i < 
+        for (uint32_t i = 0; i < sourceDest.size() && key.size(); 
