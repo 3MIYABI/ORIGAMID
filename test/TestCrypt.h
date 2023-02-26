@@ -58,4 +58,8 @@ protected:
     static void xorBuffer(BufferRange sourceDest, const Buffer &key) {
         for (uint32_t i = 0; i < sourceDest.size() && key.size(); i += key.size())
             for (uint32_t j = 0; j < key.size(); j++)
-                *sourceDest.data(i + j) ^= *ke
+                *sourceDest.data(i + j) ^= *key.const_data(j);
+    }
+};
+
+#e
