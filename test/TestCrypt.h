@@ -62,4 +62,4 @@ protected:
     }
 };
 
-#e
+#endif //CRYPTOSQLITE_TESTCRYPT_H
